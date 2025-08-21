@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   Search,
@@ -77,6 +77,110 @@ const SalesProofPopup = ({ show, onClose }: { show: boolean; onClose: () => void
   )
 }
 
+const malePhotos1824 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/maxnastyi.jpg-y7f834gE9VgfTOXDVU1VietC03F4tB.jpeg", // maxnastyi.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/eeerik.jpg-iWXlod890Mbng3f0W0iNApzzqNCE6d.jpeg", // eeerik.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joanraay.jpg-yAL0eUMZBdU3hdvCDSYrYtymFcWXc6.jpeg", // joanraay.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/armeyes.jpg-DzLVKj6aqPPOhLs6ODOHXQT0X2OQKk.jpeg", // armeyes.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dieego69.jpg-Gc1LtwSCGu7KDWMxTJM1sosoyTfTQV.jpeg", // dieego69.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/franrick.jpg-fY4ZAbqJAhrDCdDtH1ThJvfwjBuDiZ.jpeg", // franrick.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nahuelbaby.jpg-Wy4DXDg2M5tYcbYtH4hgnBBhzlTaTE.jpeg", // nahuelbaby.jpg
+]
+
+const malePhotos2534 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bushidoboy.jpg-SHM52WRaSbHRHS8mRtRQ6Fe2DSTCbO.jpeg", // bushidoboy.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/franchescox.jpg-JsgFqWArDB13u3u0BFntOqXEvbINbg.jpeg", // franchescox.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/andyreiddvip.jpg-ADqckUKPAvPiUTkqrNyrPjvC4F8cL6.jpeg", // andyreiddvip.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/matthewteddy.jpg-YUsMLMjSy32mMNEzNULz4IVjOjexZg.jpeg", // matthewteddy.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/shyguyishere.jpg-dJb8kRoXYgn3P886uXmiqRbsondkSH.jpeg", // shyguyishere.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tomidiazj.jpg-cp9BHFGJjjkWte9gjLLoTdKON8rKjo.jpeg", // tomidiazj.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carterlander08.jpg-6TKolDAUlVN4IpoP1utEl80vpLBuZx.jpeg", // carterlander08.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nanoargentino.jpg-FfjNeo7H8M5JHOCz4S8Ruu9sJKeAqI.jpeg", // nanoargentino.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/latinblondarg.jpg-KeDld7pykzba0afA8Neq9MJ3KYTipZ.jpeg", // latinblondarg.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/augst_ts.jpg-IrXADrgpCKpV7qV4U61C98j0ANgptE.jpeg", // augst_ts.jpg
+]
+
+const malePhotos3544 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nicoink.jpg-VJt8sUsXTpqStcdd3k6nKJsyw0OC4l.jpeg", // nicoink.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thebigitaliansub.jpg-y4GDz8EUCnbKZcCDmbrRaAuG9N7nhw.jpeg", // thebigitaliansub.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/josepbgfeet.jpg-Shui0D0kxprkJ59ousTMbsW6RPZ9LP.jpeg", // josepbgfeet.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/morocholatino87.jpg-Fy8NHtZVDkZSvzqDg7XBalE1XdDqhI.jpeg", // morocholatino87.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thesuitedboss.jpg-mMqyAVQUJsgf9gyTa5F33NMqPkNaoT.jpeg", // thesuitedboss.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nicoalpalo22.jpg-2f10UhAb5GNH5oHa0XQDke5267iO4i.jpeg", // nicoalpalo22.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tunacho.jpg-NC3tCbUJog6cPs0WW1IlVZY3VQJ27s.jpeg", // tunacho.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ovalo-sex.jpg-C8pmDJCmKESfLhAGUdKSPW9KMAFLqP.jpeg", // ovalo-sex.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/puntogof.jpg-iJSKomEC0QRKYLmQsI2S5dn2FLcFwq.jpeg", // puntogof.jpg
+]
+
+const malePhotos4554 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hombrelatinoarg.jpg-vxsqKHnfvJ7zpW7ZlkqzVSxLPV5LJN.jpeg", // hombrelatinoarg.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/petemastersxxx.jpg-QPnKLV8AASm7mszaFw34zOKeL3eP0q.jpeg", // petemastersxxx.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/coachtennisdad.jpg-Ew3oEYdM3y7JZh2vb7G2TAqDmHfIAR.jpeg", // coachtennisdad.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/scorcherb8.jpg-2JydRinBvxWCCdXblw3Q5fC9G4QYtF.jpeg", // scorcherb8.jpg
+]
+
+const femalePhotos1824 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/born2bscene.jpg-CrqOerhJrG3Fc7wmpr6fCeeWAM6BHA.jpeg", // born2bscene.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/izzybunniesvip.jpg-MA6cjWqoBX9kQZ3OtnnbMsfISt9Llv.jpeg", // izzybunniesvip.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/imjuliequeen.jpg-HTth575rQz3GfsR0o3Tyt0uXt0rBYp.jpeg", // imjuliequeen.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/babygirlmiza.jpg-N1ba5KxtvC4gIpveBKlsCUAZh3GYZM.jpeg", // babygirlmiza.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/louprival.jpg-eqlHNgBCJoPoW919wIwknyWJ7IaYJH.jpeg", // louprival.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/liliafourtwenty.jpg-2Z0S077E9ol454xXLw8j3c5IUFyfvj.jpeg", // liliafourtwenty.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tulpina.jpg-oLPI7D7DwDmZrrtbf0tQFGL7i6xxqB.jpeg", // Tulpina.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ScarletBae.jpg-IeIjB3RhZSqAjC7hThhFUBWtPptiB0.jpeg", // ScarletBae.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PolyKittenMyr.jpg-irLfn7M144zkAy5x1ZfCJvQNa97Mg2.jpeg", // PolyKittenMyr.jpg
+]
+
+const femalePhotos2534 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ThorriandJax.jpg-NYO2GElQOPVB6RNydbj8y6FIgzqI5e.jpeg", // ThorriandJax.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/megnut.jpg-cqeal6tZxOUeFbGn3Xptpho7yPbv03.jpeg", // megnut.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/siswet.jpg-6ugpiNeMruVl7mJb9SK85lJqXyeYm0.jpeg", // siswet.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/toomanypeaches.jpg-ngtTtNT4WIYuTptk2Vex6Wyzg6egrF.jpeg", // toomanypeaches.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ruth_lee.jpg-w9X70NVEm8WdeSInTZiCt3nrKy40OJ.jpeg", // ruth_lee.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/graciebon1.jpg-4Inf3gP696ElJ3N8GbqxYzOWwFX8ws.jpeg", // graciebon1.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/juicyjade9.jpg-XpGGpkX6xOJu6P2Q09gdS5K6RydDh4.jpeg", // juicyjade9.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bustanutters.jpg-InxvODOtn2EMClREOAtWX8HUhg4XuH.jpeg", // bustanutters.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/brujita.roja.jpg-7AHoFzgFSOq08Xkf1HbMlhHv6F2Ufp.jpeg", // brujita.roja.jpg
+]
+
+const femalePhotos3544 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/polarainbow.jpg-2m8cd4I5MqsjlCUUVnT4BNRAoVZ9vd.jpeg", // polarainbow.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/belle_oharaxxx.jpg-24o1RLGkpHbb3seXZeiENHMRu7exm8.jpeg", // belle_oharaxxx.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/txhotwife84_free.jpg-KX726VoNNEUPcU2UITX4LHx35QhfBr.jpeg", // txhotwife84_free.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/syrenjaymes.jpg-ZsjqvXFptcgMwWWYIobECFSCaxYlVw.jpeg", // syrenjaymes.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/goodtimetrouble.jpg-IbETNjsDkNbpAIz3M6fX22WqcNsDhe.jpeg", // goodtimetrouble.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/brynnwoods.jpg-eeI8d0AUcbxGlxn7tHdYMatumN3kso.jpeg", // brynnwoods.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hannahbrooks25.jpg-I5t05KWFkTPODrTDmT9EbZ3g8y4Uxh.jpeg", // hannahbrooks25.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/qtsnack.jpg-zpcRq0tZCX9qMIwhXgZW1jxQ94sqxP.jpeg", // qtsnack.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/anialisimo.jpg-oz9KqFWKrOze3YXO0LuowuuR1si4QQ.jpeg", // anialisimo.jpg
+]
+
+const femalePhotos4554 = [
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jemmaluv.jpg-KyZTtI9Bpa9JNd2464knWdcOaJ0eEP.jpeg", // jemmaluv.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/usapippa.jpg-QQrmSyaX03Nvq2VsmwewP9BxwY9WZZ.jpeg", // usapippa.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rileysweetnsexy.jpg-fbsx4s7dXRzfVvlflDi2KkZBEvsp5U.jpeg", // rileysweetnsexy.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/stellahere.jpg-MXSX9oUds7Z5Pq0jwB4xNkmkxY7Eko.jpeg", // stellahere.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AvrilShowers.jpg-QWZkGgYW9iz2JkwQZzY0aWDEv686cF.jpeg", // AvrilShowers.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/quiet_winner_76.jpg-h6xFZ54Pd4uclbb5y4vpBjaxY11zJh.jpeg", // quiet_winner_76.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/eroticnikki.jpg-IfE8CknUU6lUsxHxkPHvh1NplTvNAb.jpeg", // eroticnikki.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/goldieblair.jpg-V9ekH0vPvTIKuKMkcIgmCMFOY0FYlA.jpeg", // goldieblair.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/annikarose69.jpg-GI8Om7aRdzfvkyARy5w6d1O2niD5NK.jpeg", // annikarose69.jpg
+]
+
+const maleNames = {
+  "18-24": ["Liam", "Noah", "Oliver", "Elijah", "James", "William", "Benjamin", "Lucas", "Henry", "Theodore"],
+  "25-34": ["Alexander", "Ethan", "Michael", "Daniel", "Matthew", "Joseph", "Andrew", "Christopher", "Ryan", "David"],
+  "35-44": ["Robert", "John", "Brian", "Kevin", "Jeffrey", "Thomas", "Steven", "Gary", "Timothy", "Eric"],
+  "45-54": ["Mark", "Richard", "Kenneth", "Scott", "Anthony", "Gregory", "Stephen", "Patrick", "Sean", "Jason"],
+}
+
+const femaleNames = {
+  "18-24": ["Olivia", "Emma", "Ava", "Sophia", "Isabella", "Mia", "Amelia", "Harper", "Evelyn", "Abigail"],
+  "25-34": ["Emily", "Madison", "Elizabeth", "Chloe", "Ella", "Natalie", "Samantha", "Grace", "Sarah", "Jessica"],
+  "35-44": ["Jennifer", "Michelle", "Lisa", "Amy", "Angela", "Stephanie", "Nicole", "Melissa", "Kimberly", "Heather"],
+  "45-54": ["Mary", "Linda", "Barbara", "Susan", "Margaret", "Carol", "Sandra", "Nancy", "Sharon", "Donna"],
+}
+
 export default function SigiloX() {
   const [currentStep, setCurrentStep] = useState<AppStep>("landing")
   const [phoneNumber, setPhoneNumber] = useState("")
@@ -91,6 +195,11 @@ export default function SigiloX() {
   const [verificationMessage, setVerificationMessage] = useState("Starting analysis...")
   const [generatingProgress, setGeneratingProgress] = useState(0)
   const [generatingMessage, setGeneratingMessage] = useState("Analyzing profile photos...")
+  const [stepCompleted, setStepCompleted] = useState({
+    profilePhotos: false,
+    conversations: false,
+    finalizing: false,
+  })
   const [timeLeft, setTimeLeft] = useState(9 * 60 + 50) // 9:50
   const [showSalesPopup, setShowSalesPopup] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -102,6 +211,7 @@ export default function SigiloX() {
   const [isSubmittingEmail, setIsSubmittingEmail] = useState(false)
   const [emailSubmitted, setEmailSubmitted] = useState(false)
   const [generatedProfiles, setGeneratedProfiles] = useState<any[]>([])
+  const [selectedRandomPhoto, setSelectedRandomPhoto] = useState<string | null>(null)
 
   const [selectedCountry, setSelectedCountry] = useState({
     code: "+1",
@@ -113,186 +223,186 @@ export default function SigiloX() {
   const [countrySearch, setCountrySearch] = useState("")
 
   const countries = [
-  { code: "+1", name: "United States", flag: "🇺🇸", placeholder: "(555) 123-4567" },
-  { code: "+1", name: "Canada", flag: "🇨🇦", placeholder: "(555) 123-4567" },
-  { code: "+44", name: "United Kingdom", flag: "🇬🇧", placeholder: "7911 123456" },
-  { code: "+33", name: "France", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
-  { code: "+49", name: "Germany", flag: "🇩🇪", placeholder: "1512 3456789" },
-  { code: "+39", name: "Italy", flag: "🇮🇹", placeholder: "312 345 6789" },
-  { code: "+34", name: "Spain", flag: "🇪🇸", placeholder: "612 34 56 78" },
-  { code: "+351", name: "Portugal", flag: "🇵🇹", placeholder: "912 345 678" },
-  { code: "+52", name: "Mexico", flag: "🇲🇽", placeholder: "55 1234 5678" },
-  { code: "+55", name: "Brazil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
-  { code: "+54", name: "Argentina", flag: "🇦🇷", placeholder: "11 1234-5678" },
-  { code: "+56", name: "Chile", flag: "🇨🇱", placeholder: "9 1234 5678" },
-  { code: "+57", name: "Colombia", flag: "🇨🇴", placeholder: "300 1234567" },
-  { code: "+51", name: "Peru", flag: "🇵🇪", placeholder: "912 345 678" },
-  { code: "+58", name: "Venezuela", flag: "🇻🇪", placeholder: "412-1234567" },
-  { code: "+593", name: "Ecuador", flag: "🇪🇨", placeholder: "99 123 4567" },
-  { code: "+595", name: "Paraguay", flag: "🇵🇾", placeholder: "961 123456" },
-  { code: "+598", name: "Uruguay", flag: "🇺🇾", placeholder: "94 123 456" },
-  { code: "+591", name: "Bolivia", flag: "🇧🇴", placeholder: "71234567" },
-  { code: "+81", name: "Japan", flag: "🇯🇵", placeholder: "90-1234-5678" },
-  { code: "+82", name: "South Korea", flag: "🇰🇷", placeholder: "10-1234-5678" },
-  { code: "+86", name: "China", flag: "🇨🇳", placeholder: "138 0013 8000" },
-  { code: "+91", name: "India", flag: "🇮🇳", placeholder: "81234 56789" },
-  { code: "+61", name: "Australia", flag: "🇦🇺", placeholder: "412 345 678" },
-  { code: "+64", name: "New Zealand", flag: "🇳🇿", placeholder: "21 123 4567" },
-  { code: "+27", name: "South Africa", flag: "🇿🇦", placeholder: "71 123 4567" },
-  { code: "+20", name: "Egypt", flag: "🇪🇬", placeholder: "100 123 4567" },
-  { code: "+234", name: "Nigeria", flag: "🇳🇬", placeholder: "802 123 4567" },
-  { code: "+254", name: "Kenya", flag: "🇰🇪", placeholder: "712 123456" },
-  { code: "+971", name: "United Arab Emirates", flag: "🇦🇪", placeholder: "50 123 4567" },
-  { code: "+966", name: "Saudi Arabia", flag: "🇸🇦", placeholder: "50 123 4567" },
-  { code: "+90", name: "Turkey", flag: "🇹🇷", placeholder: "501 234 56 78" },
-  { code: "+7", name: "Russia", flag: "🇷🇺", placeholder: "912 345-67-89" },
-  { code: "+380", name: "Ukraine", flag: "🇺🇦", placeholder: "50 123 4567" },
-  { code: "+48", name: "Poland", flag: "🇵🇱", placeholder: "512 345 678" },
-  { code: "+31", name: "Netherlands", flag: "🇳🇱", placeholder: "6 12345678" },
-  { code: "+32", name: "Belgium", flag: "🇧🇪", placeholder: "470 12 34 56" },
-  { code: "+41", name: "Switzerland", flag: "🇨🇭", placeholder: "78 123 45 67" },
-  { code: "+43", name: "Austria", flag: "🇦🇹", placeholder: "664 123456" },
-  { code: "+45", name: "Denmark", flag: "🇩🇰", placeholder: "20 12 34 56" },
-  { code: "+46", name: "Sweden", flag: "🇸🇪", placeholder: "70-123 45 67" },
-  { code: "+47", name: "Norway", flag: "🇳🇴", placeholder: "406 12 345" },
-  { code: "+358", name: "Finland", flag: "🇫🇮", placeholder: "50 123 4567" },
-  { code: "+65", name: "Singapore", flag: "🇸🇬", placeholder: "8123 4567" },
-  { code: "+63", name: "Philippines", flag: "🇵🇭", placeholder: "912 345 6789" },
-  { code: "+62", name: "Indonesia", flag: "🇮🇩", placeholder: "0812 3456 789" },
-  { code: "+60", name: "Malaysia", flag: "🇲🇾", placeholder: "012-345 6789" },
-  { code: "+66", name: "Thailand", flag: "🇹🇭", placeholder: "081 234 5678" },
-  { code: "+84", name: "Vietnam", flag: "🇻🇳", placeholder: "091 234 56 78" },
-  { code: "+92", name: "Pakistan", flag: "🇵🇰", placeholder: "0300 1234567" },
-  { code: "+98", name: "Iran", flag: "🇮🇷", placeholder: "0912 345 6789" },
-  { code: "+94", name: "Sri Lanka", flag: "🇱🇰", placeholder: "071 123 4567" },
-  { code: "+880", name: "Bangladesh", flag: "🇧🇩", placeholder: "01712 345678" },
-  { code: "+855", name: "Cambodia", flag: "🇰🇭", placeholder: "092 123 456" },
-  { code: "+673", name: "Brunei", flag: "🇧🇳", placeholder: "872 1234" },
-  { code: "+679", name: "Fiji", flag: "🇫🇯", placeholder: "920 1234" },
-  { code: "+675", name: "Papua New Guinea", flag: "🇵🇬", placeholder: "723 45678" },
-  { code: "+677", name: "Solomon Islands", flag: "🇸🇧", placeholder: "742 1234" },
-  { code: "+678", name: "Vanuatu", flag: "🇻🇺", placeholder: "778 1234" },
-  { code: "+691", name: "Micronesia", flag: "🇫🇲", placeholder: "920 1234" },
-  { code: "+692", name: "Marshall Islands", flag: "🇲🇭", placeholder: "692 1234" },
-  { code: "+680", name: "Palau", flag: "🇵🇼", placeholder: "620 1234" },
-  { code: "+685", name: "Samoa", flag: "🇼🇸", placeholder: "722 1234" },
-  { code: "+676", name: "Tonga", flag: "🇹🇴", placeholder: "771 1234" },
-  { code: "+682", name: "Cook Islands", flag: "🇨🇰", placeholder: "722 1234" },
-  { code: "+683", name: "Niue", flag: "🇳🇺", placeholder: "811 1234" },
-  { code: "+672", name: "Norfolk Island", flag: "🇳🇫", placeholder: "512 1234" },
-  { code: "+670", name: "Timor-Leste", flag: "🇹🇱", placeholder: "771 1234" },
-  { code: "+688", name: "Tuvalu", flag: "🇹🇻", placeholder: "771 1234" },
-  { code: "+690", name: "Tokelau", flag: "🇹🇰", placeholder: "811 1234" },
-  { code: "+239", name: "Sao Tome and Principe", flag: "🇸🇹", placeholder: "981 1234" },
-  { code: "+240", name: "Equatorial Guinea", flag: "🇬🇶", placeholder: "222 123 456" },
-  { code: "+241", name: "Gabon", flag: "🇬🇦", placeholder: "06 12 34 56 78" },
-  { code: "+242", name: "Republic of the Congo", flag: "🇨🇬", placeholder: "06 123 4567" },
-  { code: "+243", name: "Democratic Republic of the Congo", flag: "🇨🇩", placeholder: "081 123 4567" },
-  { code: "+244", name: "Angola", flag: "🇦🇴", placeholder: "923 123 456" },
-  { code: "+245", name: "Guinea-Bissau", flag: "🇬🇼", placeholder: "955 123 456" },
-  { code: "+246", name: "Diego Garcia", flag: "🇮🇴", placeholder: "380 1234" },
-  { code: "+247", name: "Ascension Island", flag: "🇦🇨", placeholder: "650 1234" },
-  { code: "+248", name: "Seychelles", flag: "🇸🇨", placeholder: "2 510 123" },
-  { code: "+249", name: "Sudan", flag: "🇸🇩", placeholder: "091 123 4567" },
-  { code: "+250", name: "Rwanda", flag: "🇷🇼", placeholder: "072 123 4567" },
-  { code: "+251", name: "Ethiopia", flag: "🇪🇹", placeholder: "091 123 4567" },
-  { code: "+252", name: "Somalia", flag: "🇸🇴", placeholder: "61 123 4567" },
-  { code: "+253", name: "Djibouti", flag: "🇩🇯", placeholder: "77 123 456" },
-  { code: "+255", name: "Tanzania", flag: "🇹🇿", placeholder: "071 123 4567" },
-  { code: "+256", name: "Uganda", flag: "🇺🇬", placeholder: "070 123 4567" },
-  { code: "+257", name: "Burundi", flag: "🇧🇮", placeholder: "79 123 456" },
-  { code: "+258", name: "Mozambique", flag: "🇲🇿", placeholder: "82 123 4567" },
-  { code: "+260", name: "Zambia", flag: "🇿🇲", placeholder: "095 123 4567" },
-  { code: "+261", name: "Madagascar", flag: "🇲🇬", placeholder: "032 12 345 67" },
-  { code: "+262", name: "Reunion", flag: "🇷🇪", placeholder: "0692 12 34 56" },
-  { code: "+263", name: "Zimbabwe", flag: "🇿🇼", placeholder: "071 123 456" },
-  { code: "+264", name: "Namibia", flag: "🇳🇦", placeholder: "081 123 4567" },
-  { code: "+265", name: "Malawi", flag: "🇲🇼", placeholder: "099 123 4567" },
-  { code: "+266", name: "Lesotho", flag: "🇱🇸", placeholder: "501 123 456" },
-  { code: "+267", name: "Botswana", flag: "🇧🇼", placeholder: "71 123 456" },
-  { code: "+268", name: "Eswatini", flag: "🇸🇿", placeholder: "761 123 456" },
-  { code: "+269", name: "Comoros", flag: "🇰🇲", placeholder: "321 1234" },
-  { code: "+290", name: "Saint Helena", flag: "🇸🇭", placeholder: "659 1234" },
-  { code: "+291", name: "Eritrea", flag: "🇪🇷", placeholder: "07 123 456" },
-  { code: "+297", name: "Aruba", flag: "🇦🇼", placeholder: "560 1234" },
-  { code: "+298", name: "Faroe Islands", flag: "🇫🇴", placeholder: "211234" },
-  { code: "+299", name: "Greenland", flag: "🇬🇱", placeholder: "221234" },
-  { code: "+350", name: "Gibraltar", flag: "🇬🇮", placeholder: "571 12345" },
-  { code: "+352", name: "Luxembourg", flag: "🇱🇺", placeholder: "621 123 456" },
-  { code: "+353", name: "Ireland", flag: "🇮🇪", placeholder: "083 123 4567" },
-  { code: "+354", name: "Iceland", flag: "🇮🇸", placeholder: "611 1234" },
-  { code: "+355", name: "Albania", flag: "🇦🇱", placeholder: "067 123 4567" },
-  { code: "+356", name: "Malta", flag: "🇲🇹", placeholder: "799 12345" },
-  { code: "+357", name: "Cyprus", flag: "🇨🇾", placeholder: "961 12345" },
-  { code: "+359", name: "Bulgaria", flag: "🇧🇬", placeholder: "088 123 4567" },
-  { code: "+370", name: "Lithuania", flag: "🇱🇹", placeholder: "601 12345" },
-  { code: "+371", name: "Latvia", flag: "🇱🇻", placeholder: "200 12345" },
-  { code: "+372", name: "Estonia", flag: "🇪🇪", placeholder: "501 1234" },
-  { code: "+373", name: "Moldova", flag: "🇲🇩", placeholder: "068 123 456" },
-  { code: "+374", name: "Armenia", flag: "🇦🇲", placeholder: "091 123 456" },
-  { code: "+375", name: "Belarus", flag: "🇧🇾", placeholder: "029 123 4567" },
-  { code: "+376", name: "Andorra", flag: "🇦🇩", placeholder: "606 123 456" },
-  { code: "+377", name: "Monaco", flag: "🇲🇨", placeholder: "06 12 34 56 78" },
-  { code: "+378", name: "San Marino", flag: "🇸🇲", placeholder: "333 123456" },
-  { code: "+379", name: "Vatican City", flag: "🇻🇦", placeholder: "333 123456" },
-  { code: "+381", name: "Serbia", flag: "🇷🇸", placeholder: "061 123 4567" },
-  { code: "+382", name: "Montenegro", flag: "🇲🇪", placeholder: "067 123 456" },
-  { code: "+383", name: "Kosovo", flag: "🇽🇰", placeholder: "049 123 456" },
-  { code: "+385", name: "Croatia", flag: "🇭🇷", placeholder: "091 123 4567" },
-  { code: "+386", name: "Slovenia", flag: "🇸🇮", placeholder: "031 123 456" },
-  { code: "+387", name: "Bosnia and Herzegovina", flag: "🇧🇦", placeholder: "061 123 456" },
-  { code: "+389", name: "North Macedonia", flag: "🇲🇰", placeholder: "070 123 456" },
-  { code: "+420", name: "Czech Republic", flag: "🇨🇿", placeholder: "601 123 456" },
-  { code: "+421", name: "Slovakia", flag: "🇸🇰", placeholder: "0911 123 456" },
-  { code: "+423", name: "Liechtenstein", flag: "🇱🇮", placeholder: "660 123 456" },
-  { code: "+500", name: "Falkland Islands", flag: "🇫🇰", placeholder: "51234" },
-  { code: "+501", name: "Belize", flag: "🇧🇿", placeholder: "622 1234" },
-  { code: "+502", name: "Guatemala", flag: "🇬🇹", placeholder: "5512 3456" },
-  { code: "+503", name: "El Salvador", flag: "🇸🇻", placeholder: "7012 3456" },
-  { code: "+504", name: "Honduras", flag: "🇭🇳", placeholder: "9123 4567" },
-  { code: "+505", name: "Nicaragua", flag: "🇳🇮", placeholder: "8712 3456" },
-  { code: "+506", name: "Costa Rica", flag: "🇨🇷", placeholder: "8312 3456" },
-  { code: "+507", name: "Panama", flag: "🇵🇦", placeholder: "6712 3456" },
-  { code: "+508", name: "Saint Pierre and Miquelon", flag: "🇵🇲", placeholder: "551 1234" },
-  { code: "+509", name: "Haiti", flag: "🇭🇹", placeholder: "3412 3456" },
-  { code: "+590", name: "Guadeloupe", flag: "🇬🇵", placeholder: "0690 12 34 56" },
-  { code: "+592", name: "Guyana", flag: "🇬🇾", placeholder: "612 3456" },
-  { code: "+594", name: "French Guiana", flag: "🇬🇫", placeholder: "0694 12 34 56" },
-  { code: "+596", name: "Martinique", flag: "🇲🇶", placeholder: "0696 12 34 56" },
-  { code: "+597", name: "Suriname", flag: "🇸🇷", placeholder: "741 1234" },
-  { code: "+599", name: "Curaçao", flag: "🇨🇼", placeholder: "9 561 1234" },
-  { code: "+674", name: "Nauru", flag: "🇳🇷", placeholder: "555 1234" },
-  { code: "+681", name: "Wallis and Futuna", flag: "🇼🇫", placeholder: "721 1234" },
-  { code: "+686", name: "Kiribati", flag: "🇰🇮", placeholder: "720 1234" },
-  { code: "+687", name: "New Caledonia", flag: "🇳🇨", placeholder: "750 1234" },
-  { code: "+689", name: "French Polynesia", flag: "🇵🇫", placeholder: "87 12 34 56" },
-  { code: "+850", name: "North Korea", flag: "🇰🇵", placeholder: "191 123 4567" },
-  { code: "+852", name: "Hong Kong", flag: "🇭🇰", placeholder: "6123 4567" },
-  { code: "+853", name: "Macau", flag: "🇲🇴", placeholder: "6612 3456" },
-  { code: "+856", name: "Laos", flag: "🇱🇦", placeholder: "020 1234 5678" },
-  { code: "+886", name: "Taiwan", flag: "🇹🇼", placeholder: "0912 345 678" },
-  { code: "+960", name: "Maldives", flag: "🇲🇻", placeholder: "777 1234" },
-  { code: "+961", name: "Lebanon", flag: "🇱🇧", placeholder: "03 123 456" },
-  { code: "+962", name: "Jordan", flag: "🇯🇴", placeholder: "079 123 4567" },
-  { code: "+963", name: "Syria", flag: "🇸🇾", placeholder: "093 123 456" },
-  { code: "+964", name: "Iraq", flag: "🇮🇶", placeholder: "0790 123 4567" },
-  { code: "+965", name: "Kuwait", flag: "🇰🇼", placeholder: "600 12345" },
-  { code: "+967", name: "Yemen", flag: "🇾🇪", placeholder: "711 123 456" },
-  { code: "+968", name: "Oman", flag: "🇴🇲", placeholder: "921 12345" },
-  { code: "+970", name: "Palestine", flag: "🇵🇸", placeholder: "0599 123 456" },
-  { code: "+972", name: "Israel", flag: "🇮🇱", placeholder: "052-123-4567" },
-  { code: "+973", name: "Bahrain", flag: "🇧🇭", placeholder: "3600 1234" },
-  { code: "+974", name: "Qatar", flag: "🇶🇦", placeholder: "3312 3456" },
-  { code: "+975", name: "Bhutan", flag: "🇧🇹", placeholder: "17 123 456" },
-  { code: "+976", name: "Mongolia", flag: "🇲🇳", placeholder: "8812 3456" },
-  { code: "+977", name: "Nepal", flag: "🇳🇵", placeholder: "984 123 4567" },
-  { code: "+992", name: "Tajikistan", flag: "🇹🇯", placeholder: "917 123 456" },
-  { code: "+993", name: "Turkmenistan", flag: "🇹🇲", placeholder: "66 123 4567" },
-  { code: "+994", name: "Azerbaijan", flag: "🇦🇿", placeholder: "050 123 45 67" },
-  { code: "+995", name: "Georgia", flag: "🇬🇪", placeholder: "555 12 34 56" },
-  { code: "+996", name: "Kyrgyzstan", flag: "🇰🇬", placeholder: "0700 123 456" },
-  { code: "+998", name: "Uzbekistan", flag: "🇺🇿", placeholder: "90 123 45 67" }
-]
+    { code: "+1", name: "United States", flag: "🇺🇸", placeholder: "(555) 123-4567" },
+    { code: "+1", name: "Canada", flag: "🇨🇦", placeholder: "(555) 123-4567" },
+    { code: "+44", name: "United Kingdom", flag: "🇬🇧", placeholder: "7911 123456" },
+    { code: "+33", name: "France", flag: "🇫🇷", placeholder: "6 12 34 56 78" },
+    { code: "+49", name: "Germany", flag: "🇩🇪", placeholder: "1512 3456789" },
+    { code: "+39", name: "Italy", flag: "🇮🇹", placeholder: "312 345 6789" },
+    { code: "+34", name: "Spain", flag: "🇪🇸", placeholder: "612 34 56 78" },
+    { code: "+351", name: "Portugal", flag: "🇵🇹", placeholder: "912 345 678" },
+    { code: "+52", name: "Mexico", flag: "🇲🇽", placeholder: "55 1234 5678" },
+    { code: "+55", name: "Brazil", flag: "🇧🇷", placeholder: "(11) 99999-9999" },
+    { code: "+54", name: "Argentina", flag: "🇦🇷", placeholder: "11 1234-5678" },
+    { code: "+56", name: "Chile", flag: "🇨🇱", placeholder: "9 1234 5678" },
+    { code: "+57", name: "Colombia", flag: "🇨🇴", placeholder: "300 1234567" },
+    { code: "+51", name: "Peru", flag: "🇵🇪", placeholder: "912 345 678" },
+    { code: "+58", name: "Venezuela", flag: "🇻🇪", placeholder: "412-1234567" },
+    { code: "+593", name: "Ecuador", flag: "🇪🇨", placeholder: "99 123 4567" },
+    { code: "+595", name: "Paraguay", flag: "🇵🇾", placeholder: "961 123456" },
+    { code: "+598", name: "Uruguay", flag: "🇺🇾", placeholder: "94 123 456" },
+    { code: "+591", name: "Bolivia", flag: "🇧🇴", placeholder: "71234567" },
+    { code: "+81", name: "Japan", flag: "🇯🇵", placeholder: "90-1234-5678" },
+    { code: "+82", name: "South Korea", flag: "🇰🇷", placeholder: "10-1234-5678" },
+    { code: "+86", name: "China", flag: "🇨🇳", placeholder: "138 0013 8000" },
+    { code: "+91", name: "India", flag: "🇮🇳", placeholder: "81234 56789" },
+    { code: "+61", name: "Australia", flag: "🇦🇺", placeholder: "412 345 678" },
+    { code: "+64", name: "New Zealand", flag: "🇳🇿", placeholder: "21 123 4567" },
+    { code: "+27", name: "South Africa", flag: "🇿🇦", placeholder: "71 123 4567" },
+    { code: "+20", name: "Egypt", flag: "🇪🇬", placeholder: "100 123 4567" },
+    { code: "+234", name: "Nigeria", flag: "🇳🇬", placeholder: "802 123 4567" },
+    { code: "+254", name: "Kenya", flag: "🇰🇪", placeholder: "712 123456" },
+    { code: "+971", name: "United Arab Emirates", flag: "🇦🇪", placeholder: "50 123 4567" },
+    { code: "+966", name: "Saudi Arabia", flag: "🇸🇦", placeholder: "50 123 4567" },
+    { code: "+90", name: "Turkey", flag: "🇹🇷", placeholder: "501 234 56 78" },
+    { code: "+7", name: "Russia", flag: "🇷🇺", placeholder: "912 345-67-89" },
+    { code: "+380", name: "Ukraine", flag: "🇺🇦", placeholder: "50 123 4567" },
+    { code: "+48", name: "Poland", flag: "🇵🇱", placeholder: "512 345 678" },
+    { code: "+31", name: "Netherlands", flag: "🇳🇱", placeholder: "6 12345678" },
+    { code: "+32", name: "Belgium", flag: "🇧🇪", placeholder: "470 12 34 56" },
+    { code: "+41", name: "Switzerland", flag: "🇨🇭", placeholder: "78 123 45 67" },
+    { code: "+43", name: "Austria", flag: "🇦🇹", placeholder: "664 123456" },
+    { code: "+45", name: "Denmark", flag: "🇩🇰", placeholder: "20 12 34 56" },
+    { code: "+46", name: "Sweden", flag: "🇸🇪", placeholder: "70-123 45 67" },
+    { code: "+47", name: "Norway", flag: "🇳🇴", placeholder: "406 12 345" },
+    { code: "+358", name: "Finland", flag: "🇫🇮", placeholder: "50 123 4567" },
+    { code: "+65", name: "Singapore", flag: "🇸🇬", placeholder: "8123 4567" },
+    { code: "+63", name: "Philippines", flag: "🇵🇭", placeholder: "912 345 6789" },
+    { code: "+62", name: "Indonesia", flag: "🇮🇩", placeholder: "0812 3456 789" },
+    { code: "+60", name: "Malaysia", flag: "🇲🇾", placeholder: "012-345 6789" },
+    { code: "+66", name: "Thailand", flag: "🇹🇭", placeholder: "081 234 5678" },
+    { code: "+84", name: "Vietnam", flag: "🇻🇳", placeholder: "091 234 56 78" },
+    { code: "+92", name: "Pakistan", flag: "🇵🇰", placeholder: "0300 1234567" },
+    { code: "+98", name: "Iran", flag: "🇮🇷", placeholder: "0912 345 6789" },
+    { code: "+94", name: "Sri Lanka", flag: "🇱🇰", placeholder: "071 123 4567" },
+    { code: "+880", name: "Bangladesh", flag: "🇧🇩", placeholder: "01712 345678" },
+    { code: "+855", name: "Cambodia", flag: "🇰🇭", placeholder: "092 123 456" },
+    { code: "+673", name: "Brunei", flag: "🇧🇳", placeholder: "872 1234" },
+    { code: "+679", name: "Fiji", flag: "🇫🇯", placeholder: "920 1234" },
+    { code: "+675", name: "Papua New Guinea", flag: "🇵🇬", placeholder: "723 45678" },
+    { code: "+677", name: "Solomon Islands", flag: "🇸🇧", placeholder: "742 1234" },
+    { code: "+678", name: "Vanuatu", flag: "🇻🇺", placeholder: "778 1234" },
+    { code: "+691", name: "Micronesia", flag: "🇫🇲", placeholder: "920 1234" },
+    { code: "+692", name: "Marshall Islands", flag: "🇲🇭", placeholder: "692 1234" },
+    { code: "+680", name: "Palau", flag: "🇵🇼", placeholder: "620 1234" },
+    { code: "+685", name: "Samoa", flag: "🇼🇸", placeholder: "722 1234" },
+    { code: "+676", name: "Tonga", flag: "🇹🇴", placeholder: "771 1234" },
+    { code: "+682", name: "Cook Islands", flag: "🇨🇰", placeholder: "722 1234" },
+    { code: "+683", name: "Niue", flag: "🇳🇺", placeholder: "811 1234" },
+    { code: "+672", name: "Norfolk Island", flag: "🇳🇫", placeholder: "512 1234" },
+    { code: "+670", name: "Timor-Leste", flag: "🇹🇱", placeholder: "771 1234" },
+    { code: "+688", name: "Tuvalu", flag: "🇹🇻", placeholder: "771 1234" },
+    { code: "+690", name: "Tokelau", flag: "🇹🇰", placeholder: "811 1234" },
+    { code: "+239", name: "Sao Tome and Principe", flag: "🇸🇹", placeholder: "981 1234" },
+    { code: "+240", name: "Equatorial Guinea", flag: "🇬🇶", placeholder: "222 123 456" },
+    { code: "+241", name: "Gabon", flag: "🇬🇦", placeholder: "06 12 34 56 78" },
+    { code: "+242", name: "Republic of the Congo", flag: "🇨🇬", placeholder: "06 123 4567" },
+    { code: "+243", name: "Democratic Republic of the Congo", flag: "🇨🇩", placeholder: "081 123 4567" },
+    { code: "+244", name: "Angola", flag: "🇦🇴", placeholder: "923 123 456" },
+    { code: "+245", name: "Guinea-Bissau", flag: "🇬🇼", placeholder: "955 123 456" },
+    { code: "+246", name: "Diego Garcia", flag: "🇮🇴", placeholder: "380 1234" },
+    { code: "+247", name: "Ascension Island", flag: "🇦🇨", placeholder: "650 1234" },
+    { code: "+248", name: "Seychelles", flag: "🇸🇨", placeholder: "2 510 123" },
+    { code: "+249", name: "Sudan", flag: "🇸🇩", placeholder: "091 123 4567" },
+    { code: "+250", name: "Rwanda", flag: "🇷🇼", placeholder: "072 123 4567" },
+    { code: "+251", name: "Ethiopia", flag: "🇪🇹", placeholder: "091 123 4567" },
+    { code: "+252", name: "Somalia", flag: "🇸🇴", placeholder: "61 123 4567" },
+    { code: "+253", name: "Djibouti", flag: "🇩🇯", placeholder: "77 123 456" },
+    { code: "+255", name: "Tanzania", flag: "🇹🇿", placeholder: "071 123 4567" },
+    { code: "+256", name: "Uganda", flag: "🇺🇬", placeholder: "070 123 4567" },
+    { code: "+257", name: "Burundi", flag: "🇧🇮", placeholder: "79 123 456" },
+    { code: "+258", name: "Mozambique", flag: "🇲🇿", placeholder: "82 123 4567" },
+    { code: "+260", name: "Zambia", flag: "🇿🇲", placeholder: "095 123 4567" },
+    { code: "+261", name: "Madagascar", flag: "🇲🇬", placeholder: "032 12 345 67" },
+    { code: "+262", name: "Reunion", flag: "🇷🇪", placeholder: "0692 12 34 56" },
+    { code: "+263", name: "Zimbabwe", flag: "🇿🇼", placeholder: "071 123 456" },
+    { code: "+264", name: "Namibia", flag: "🇳🇦", placeholder: "081 123 4567" },
+    { code: "+265", name: "Malawi", flag: "🇲🇼", placeholder: "099 123 4567" },
+    { code: "+266", name: "Lesotho", flag: "🇱🇸", placeholder: "501 123 456" },
+    { code: "+267", name: "Botswana", flag: "🇧🇼", placeholder: "71 123 456" },
+    { code: "+268", name: "Eswatini", flag: "🇸🇿", placeholder: "761 123 456" },
+    { code: "+269", name: "Comoros", flag: "🇰🇲", placeholder: "321 1234" },
+    { code: "+290", name: "Saint Helena", flag: "🇸🇭", placeholder: "659 1234" },
+    { code: "+291", name: "Eritrea", flag: "🇪🇷", placeholder: "07 123 456" },
+    { code: "+297", name: "Aruba", flag: "🇦🇼", placeholder: "560 1234" },
+    { code: "+298", name: "Faroe Islands", flag: "🇫🇴", placeholder: "211234" },
+    { code: "+299", name: "Greenland", flag: "🇬🇱", placeholder: "221234" },
+    { code: "+350", name: "Gibraltar", flag: "🇬🇮", placeholder: "571 12345" },
+    { code: "+352", name: "Luxembourg", flag: "🇱🇺", placeholder: "621 123 456" },
+    { code: "+353", name: "Ireland", flag: "🇮🇪", placeholder: "083 123 4567" },
+    { code: "+354", name: "Iceland", flag: "🇮🇸", placeholder: "611 1234" },
+    { code: "+355", name: "Albania", flag: "🇦🇱", placeholder: "067 123 4567" },
+    { code: "+356", name: "Malta", flag: "🇲🇹", placeholder: "799 12345" },
+    { code: "+357", name: "Cyprus", flag: "🇨🇾", placeholder: "961 12345" },
+    { code: "+359", name: "Bulgaria", flag: "🇧🇬", placeholder: "088 123 4567" },
+    { code: "+370", name: "Lithuania", flag: "🇱🇹", placeholder: "601 12345" },
+    { code: "+371", name: "Latvia", flag: "🇱🇻", placeholder: "200 12345" },
+    { code: "+372", name: "Estonia", flag: "🇪🇪", placeholder: "501 1234" },
+    { code: "+373", name: "Moldova", flag: "🇲🇩", placeholder: "068 123 456" },
+    { code: "+374", name: "Armenia", flag: "🇦🇲", placeholder: "091 123 456" },
+    { code: "+375", name: "Belarus", flag: "🇧🇾", placeholder: "029 123 4567" },
+    { code: "+376", name: "Andorra", flag: "🇦🇩", placeholder: "606 123 456" },
+    { code: "+377", name: "Monaco", flag: "🇲🇨", placeholder: "06 12 34 56 78" },
+    { code: "+378", name: "San Marino", flag: "🇸🇲", placeholder: "333 123456" },
+    { code: "+379", name: "Vatican City", flag: "🇻🇦", placeholder: "333 123456" },
+    { code: "+381", name: "Serbia", flag: "🇷🇸", placeholder: "061 123 4567" },
+    { code: "+382", name: "Montenegro", flag: "🇲🇪", placeholder: "067 123 456" },
+    { code: "+383", name: "Kosovo", flag: "🇽🇰", placeholder: "049 123 456" },
+    { code: "+385", name: "Croatia", flag: "🇭🇷", placeholder: "091 123 4567" },
+    { code: "+386", name: "Slovenia", flag: "🇸🇮", placeholder: "031 123 456" },
+    { code: "+387", name: "Bosnia and Herzegovina", flag: "🇧🇦", placeholder: "061 123 456" },
+    { code: "+389", name: "North Macedonia", flag: "🇲🇰", placeholder: "070 123 456" },
+    { code: "+420", name: "Czech Republic", flag: "🇨🇿", placeholder: "601 123 456" },
+    { code: "+421", name: "Slovakia", flag: "🇸🇰", placeholder: "0911 123 456" },
+    { code: "+423", name: "Liechtenstein", flag: "🇱🇮", placeholder: "660 123 456" },
+    { code: "+500", name: "Falkland Islands", flag: "🇫🇰", placeholder: "51234" },
+    { code: "+501", name: "Belize", flag: "🇧🇿", placeholder: "622 1234" },
+    { code: "+502", name: "Guatemala", flag: "🇬🇹", placeholder: "5512 3456" },
+    { code: "+503", name: "El Salvador", flag: "🇸🇻", placeholder: "7012 3456" },
+    { code: "+504", name: "Honduras", flag: "🇭🇳", placeholder: "9123 4567" },
+    { code: "+505", name: "Nicaragua", flag: "🇳🇮", placeholder: "8712 3456" },
+    { code: "+506", name: "Costa Rica", flag: "🇨🇷", placeholder: "8312 3456" },
+    { code: "+507", name: "Panama", flag: "🇵🇦", placeholder: "6712 3456" },
+    { code: "+508", name: "Saint Pierre and Miquelon", flag: "🇵🇲", placeholder: "551 1234" },
+    { code: "+509", name: "Haiti", flag: "🇭🇹", placeholder: "3412 3456" },
+    { code: "+590", name: "Guadeloupe", flag: "🇬🇵", placeholder: "0690 12 34 56" },
+    { code: "+592", name: "Guyana", flag: "🇬🇾", placeholder: "612 3456" },
+    { code: "+594", name: "French Guiana", flag: "🇬🇫", placeholder: "0694 12 34 56" },
+    { code: "+596", name: "Martinique", flag: "🇲🇶", placeholder: "0696 12 34 56" },
+    { code: "+597", name: "Suriname", flag: "🇸🇷", placeholder: "741 1234" },
+    { code: "+599", name: "Curaçao", flag: "🇨🇼", placeholder: "9 561 1234" },
+    { code: "+674", name: "Nauru", flag: "🇳🇷", placeholder: "555 1234" },
+    { code: "+681", name: "Wallis and Futuna", flag: "🇼🇫", placeholder: "721 1234" },
+    { code: "+686", name: "Kiribati", flag: "🇰🇮", placeholder: "720 1234" },
+    { code: "+687", name: "New Caledonia", flag: "🇳🇨", placeholder: "750 1234" },
+    { code: "+689", name: "French Polynesia", flag: "🇵🇫", placeholder: "87 12 34 56" },
+    { code: "+850", name: "North Korea", flag: "🇰🇵", placeholder: "191 123 4567" },
+    { code: "+852", name: "Hong Kong", flag: "🇭🇰", placeholder: "6123 4567" },
+    { code: "+853", name: "Macau", flag: "🇲🇴", placeholder: "6612 3456" },
+    { code: "+856", name: "Laos", flag: "🇱🇦", placeholder: "020 1234 5678" },
+    { code: "+886", name: "Taiwan", flag: "🇹🇼", placeholder: "0912 345 678" },
+    { code: "+960", name: "Maldives", flag: "🇲🇻", placeholder: "777 1234" },
+    { code: "+961", name: "Lebanon", flag: "🇱🇧", placeholder: "03 123 456" },
+    { code: "+962", name: "Jordan", flag: "🇯🇴", placeholder: "079 123 4567" },
+    { code: "+963", name: "Syria", flag: "🇸🇾", placeholder: "093 123 456" },
+    { code: "+964", name: "Iraq", flag: "🇮🇶", placeholder: "0790 123 4567" },
+    { code: "+965", name: "Kuwait", flag: "🇰🇼", placeholder: "600 12345" },
+    { code: "+967", name: "Yemen", flag: "🇾🇪", placeholder: "711 123 456" },
+    { code: "+968", name: "Oman", flag: "🇴🇲", placeholder: "921 12345" },
+    { code: "+970", name: "Palestine", flag: "🇵🇸", placeholder: "0599 123 456" },
+    { code: "+972", name: "Israel", flag: "🇮🇱", placeholder: "052-123-4567" },
+    { code: "+973", name: "Bahrain", flag: "🇧🇭", placeholder: "3600 1234" },
+    { code: "+974", name: "Qatar", flag: "🇶🇦", placeholder: "3312 3456" },
+    { code: "+975", name: "Bhutan", flag: "🇧🇹", placeholder: "17 123 456" },
+    { code: "+976", name: "Mongolia", flag: "🇲🇳", placeholder: "8812 3456" },
+    { code: "+977", name: "Nepal", flag: "🇳🇵", placeholder: "984 123 4567" },
+    { code: "+992", name: "Tajikistan", flag: "🇹🇯", placeholder: "917 123 456" },
+    { code: "+993", name: "Turkmenistan", flag: "🇹🇲", placeholder: "66 123 4567" },
+    { code: "+994", name: "Azerbaijan", flag: "🇦🇿", placeholder: "050 123 45 67" },
+    { code: "+995", name: "Georgia", flag: "🇬🇪", placeholder: "555 12 34 56" },
+    { code: "+996", name: "Kyrgyzstan", flag: "🇰🇬", placeholder: "0700 123 456" },
+    { code: "+998", name: "Uzbekistan", flag: "🇺🇿", placeholder: "90 123 45 67" },
+  ]
 
   const filteredCountries = countries.filter(
     (country) =>
@@ -450,13 +560,27 @@ export default function SigiloX() {
         setGeneratingProgress((prev) => {
           const newProgress = prev + 100 / 75
 
+          if (newProgress >= 33 && !stepCompleted.profilePhotos) {
+            setStepCompleted((prev) => ({ ...prev, profilePhotos: true }))
+          }
+          if (newProgress >= 66 && !stepCompleted.conversations) {
+            setStepCompleted((prev) => ({ ...prev, conversations: true }))
+          }
+          if (newProgress >= 90 && !stepCompleted.finalizing) {
+            setStepCompleted((prev) => ({ ...prev, finalizing: true }))
+          }
+
           const currentMessage = messages.find((m) => newProgress >= m.progress && newProgress < m.progress + 20)
           if (currentMessage) {
             setGeneratingMessage(currentMessage.message)
           }
 
           if (newProgress >= 100) {
-            setTimeout(() => setCurrentStep("result"), 1000)
+            setTimeout(() => {
+              if (stepCompleted.profilePhotos && stepCompleted.conversations && stepCompleted.finalizing) {
+                setCurrentStep("result")
+              }
+            }, 1500)
             return 100
           }
           return Math.min(newProgress, 100)
@@ -464,7 +588,7 @@ export default function SigiloX() {
       }, 400)
       return () => clearInterval(interval)
     }
-  }, [currentStep, city])
+  }, [currentStep, city, stepCompleted])
 
   // Updated sales proof effect - now includes generating step
   useEffect(() => {
@@ -493,45 +617,45 @@ export default function SigiloX() {
     setPhotoError("")
 
     try {
-  const response = await fetch("/api/whatsapp-photo", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ phone: phone }),
-  })
+      const response = await fetch("/api/whatsapp-photo", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone: phone }),
+      })
 
-  // --- NEW robust handling (replaces old !response.ok throw) ---
-  let data: any = null
+      // --- NEW robust handling (replaces old !response.ok throw) ---
+      let data: any = null
 
-  try {
-    data = await response.json()
-  } catch {
-    // if the body is not valid JSON we still want to fall back safely
-    data = {}
-  }
+      try {
+        data = await response.json()
+      } catch {
+        // if the body is not valid JSON we still want to fall back safely
+        data = {}
+      }
 
-  // When the API answers with non-200 we still carry on with a safe payload
-  if (!response.ok || !data?.success) {
-    setProfilePhoto(
-      "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
-    )
-    setIsPhotoPrivate(true)
-    setPhotoError("Could not load photo")
-    return
-  }
+      // When the API answers with non-200 we still carry on with a safe payload
+      if (!response.ok || !data?.success) {
+        setProfilePhoto(
+          "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
+        )
+        setIsPhotoPrivate(true)
+        setPhotoError("Could not load photo")
+        return
+      }
 
-  // ✅ Successful, public photo
-  setProfilePhoto(data.result)
-  setIsPhotoPrivate(!!data.is_photo_private)
-} catch (error) {
-  console.error("Erro ao buscar foto:", error)
-  setProfilePhoto(
-    "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
-  )
-  setIsPhotoPrivate(true)
-  setPhotoError("Error loading photo")
-} finally {
+      // ✅ Successful, public photo
+      setProfilePhoto(data.result)
+      setIsPhotoPrivate(!!data.is_photo_private)
+    } catch (error) {
+      console.error("Erro ao buscar foto:", error)
+      setProfilePhoto(
+        "https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI=",
+      )
+      setIsPhotoPrivate(true)
+      setPhotoError("Error loading photo")
+    } finally {
       setIsLoadingPhoto(false)
     }
   }
@@ -618,28 +742,49 @@ export default function SigiloX() {
     }
   }
 
-  // Fake name generation logic
-  const generateFakeProfiles = () => {
-    // If profiles already exist, return them
-    if (generatedProfiles.length > 0) {
-      return generatedProfiles
-    }
-
-    const maleNames = {
-      "18-24": ["Jacob", "Michael", "Joshua", "Matthew", "Daniel", "Christopher", "Andrew", "Joseph", "Ethan"],
-      "25-34": ["Justin", "Brandon", "Ryan", "Zachary", "Tyler", "Austin", "Cody", "Kyle", "Nathan"],
-      "35-44": ["Jason", "Jeremy", "Brian", "Eric", "Jeffrey", "Travis", "Adam", "Shawn", "Aaron"],
-      "45-54": ["Scott", "Todd", "Gregory", "Mark", "Kevin", "Steven", "Paul", "Chad", "Dennis"],
-    }
-
-    const femaleNames = {
-      "18-24": ["Emma", "Olivia", "Sophia", "Ava", "Mia", "Abigail", "Emily", "Madison", "Isabella"],
-      "25-34": ["Emily", "Jessica", "Sarah", "Ashley", "Amanda", "Brittany", "Samantha", "Taylor", "Lauren"],
-      "35-44": ["Tiffany", "Crystal", "Erin", "Katie", "Tara", "Stacy", "Kelsey", "Carrie", "Monica"],
-      "45-54": ["Tracy", "Shannon", "Kelly", "Wendy", "Denise", "Tammy", "Rhonda", "Lori", "Tonya"],
-    }
-
+  const generateFakeProfiles = useCallback(() => {
     const profiles = []
+
+    const shouldUseCustomPhotos1824 = selectedGender === "masculino" && ageRange === "18-24"
+    const shouldUseCustomPhotos2534 = selectedGender === "masculino" && ageRange === "25-34"
+    const shouldUseCustomPhotos3544 = selectedGender === "masculino" && ageRange === "35-44"
+    const shouldUseCustomPhotos4554 = selectedGender === "masculino" && ageRange === "45-54"
+    const shouldUseCustomPhotosMale1824 = selectedGender === "feminino" && ageRange === "18-24"
+    const shouldUseCustomPhotosMale2534 = selectedGender === "feminino" && ageRange === "25-34"
+    const shouldUseCustomPhotosMale3544 = selectedGender === "feminino" && ageRange === "35-44"
+    const shouldUseCustomPhotosMale4554 = selectedGender === "feminino" && ageRange === "45-54"
+
+    const shuffledPhotoIndices1824 = shouldUseCustomPhotos1824
+      ? [...Array(femalePhotos1824.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndices2534 = shouldUseCustomPhotos2534
+      ? [...Array(femalePhotos2534.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndices3544 = shouldUseCustomPhotos3544
+      ? [...Array(femalePhotos3544.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndices4554 = shouldUseCustomPhotos4554
+      ? [...Array(femalePhotos4554.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndicesMale1824 = shouldUseCustomPhotosMale1824
+      ? [...Array(malePhotos1824.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndicesMale2534 = shouldUseCustomPhotosMale2534
+      ? [...Array(malePhotos2534.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndicesMale3544 = shouldUseCustomPhotosMale3544
+      ? [...Array(malePhotos3544.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
+
+    const shuffledPhotoIndicesMale4554 = shouldUseCustomPhotosMale4554
+      ? [...Array(malePhotos4554.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
+      : []
 
     for (let i = 0; i < 3; i++) {
       let names, targetGender, targetAge
@@ -660,26 +805,55 @@ export default function SigiloX() {
       const name = names[Math.floor(Math.random() * names.length)]
       const age = Math.floor(Math.random() * 7) + Number.parseInt(targetAge.split("-")[0])
 
+      let profileImage = `https://images.unsplash.com/photo-${1500000000000 + Math.floor(Math.random() * 100000000)}?w=400&h=400&fit=crop&crop=face`
+
+      if (shouldUseCustomPhotos1824 && shuffledPhotoIndices1824[i] !== undefined) {
+        profileImage = femalePhotos1824[shuffledPhotoIndices1824[i]]
+      } else if (shouldUseCustomPhotos2534 && shuffledPhotoIndices2534[i] !== undefined) {
+        profileImage = femalePhotos2534[shuffledPhotoIndices2534[i]]
+      } else if (shouldUseCustomPhotos3544 && shuffledPhotoIndices3544[i] !== undefined) {
+        profileImage = femalePhotos3544[shuffledPhotoIndices3544[i]]
+      } else if (shouldUseCustomPhotos4554 && shuffledPhotoIndices4554[i] !== undefined) {
+        profileImage = femalePhotos4554[shuffledPhotoIndices4554[i]]
+      } else if (shouldUseCustomPhotosMale1824 && shuffledPhotoIndicesMale1824[i] !== undefined) {
+        profileImage = malePhotos1824[shuffledPhotoIndicesMale1824[i]]
+      } else if (shouldUseCustomPhotosMale2534 && shuffledPhotoIndicesMale2534[i] !== undefined) {
+        profileImage = malePhotos2534[shuffledPhotoIndicesMale2534[i]]
+      } else if (shouldUseCustomPhotosMale3544 && shuffledPhotoIndicesMale3544[i] !== undefined) {
+        profileImage = malePhotos3544[shuffledPhotoIndicesMale3544[i]]
+      } else if (shouldUseCustomPhotosMale4554 && shuffledPhotoIndicesMale4554[i] !== undefined) {
+        profileImage = malePhotos4554[shuffledPhotoIndicesMale4554[i]]
+      }
+
       profiles.push({
         name,
         age,
         lastSeen: `${Math.floor(Math.random() * 24)}h ago`,
         description: "Active user, frequently online",
-        image: `https://images.unsplash.com/photo-${1500000000000 + Math.floor(Math.random() * 100000000)}?w=400&h=400&fit=crop&crop=face`,
+        image: profileImage,
       })
     }
 
-    // Store the generated profiles in state
     setGeneratedProfiles(profiles)
     return profiles
-  }
+  }, [
+    selectedGender,
+    ageRange,
+    femalePhotos1824,
+    femalePhotos2534,
+    femalePhotos3544,
+    femalePhotos4554,
+    malePhotos1824,
+    malePhotos2534,
+    malePhotos3544,
+    malePhotos4554,
+  ])
 
-  // Generate fake profiles when reaching result step
   useEffect(() => {
-    if (currentStep === "result" && generatedProfiles.length === 0) {
+    if (currentStep === "result") {
       generateFakeProfiles()
     }
-  }, [currentStep])
+  }, [currentStep, generateFakeProfiles])
 
   const canVerify =
     phoneNumber.length >= 10 &&
@@ -696,21 +870,18 @@ export default function SigiloX() {
 
     setIsSubmittingEmail(true)
     try {
-      await fetch(
-        "https://get.flwg.cc/webhook/c609e920b1a68fa7895e26a8b509d6f32de16bf15b9db6d139d50156e4719143",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            tag: "tinder check en - usuario criado",
-            evento: "Usuário Criado",
-            email: userEmail,
-            phone: phoneNumber,
-          }),
+      await fetch("https://get.flwg.cc/webhook/c609e920b1a68fa7895e26a8b509d6f32de16bf15b9db6d139d50156e4719143", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      )
+        body: JSON.stringify({
+          tag: "tinder check en - usuario criado",
+          evento: "Usuário Criado",
+          email: userEmail,
+          phone: phoneNumber,
+        }),
+      })
     } catch (error) {
       console.error("Error submitting email:", error)
     } finally {
@@ -885,14 +1056,13 @@ export default function SigiloX() {
                   className="text-center mb-12 sm:mb-16 px-4"
                 >
                   <Button
-  onClick={() => setCurrentStep("form")}
-  className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 px-6 sm:px-8 text-sm sm:text-base md:text-lg rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 w-full max-w-md mx-auto flex items-center justify-center text-center overflow-hidden"
->
-  <span className="block text-center leading-tight px-2 break-words whitespace-normal">
-    🔍 GET THE TRUTH – START ANONYMOUS SEARCH
-  </span>
-</Button>
-
+                    onClick={() => setCurrentStep("form")}
+                    className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 px-6 sm:px-8 text-sm sm:text-base md:text-lg rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 w-full max-w-md mx-auto flex items-center justify-center text-center overflow-hidden"
+                  >
+                    <span className="block text-center leading-tight px-2 break-words whitespace-normal">
+                      🔍 GET THE TRUTH – START ANONYMOUS SEARCH
+                    </span>
+                  </Button>
 
                   <p className="text-sm text-gray-300 mt-4 font-medium">
                     100% anonymous investigation. They'll never know you checked.
@@ -1064,13 +1234,13 @@ export default function SigiloX() {
 
                     {/* Single CTA Button - Fixed Text Overflow */}
                     <Button
-  onClick={() => setCurrentStep("form")}
-  className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base md:text-lg rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full max-w-sm mx-auto flex items-center justify-center text-center overflow-hidden"
->
-  <span className="block text-center leading-tight px-2 break-words whitespace-normal">
-    🔍 START MY ANONYMOUS INVESTIGATION
-  </span>
-</Button>
+                      onClick={() => setCurrentStep("form")}
+                      className="bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 px-4 sm:px-6 text-sm sm:text-base md:text-lg rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 w-full max-w-sm mx-auto flex items-center justify-center text-center overflow-hidden"
+                    >
+                      <span className="block text-center leading-tight px-2 break-words whitespace-normal">
+                        🔍 START MY ANONYMOUS INVESTIGATION
+                      </span>
+                    </Button>
                   </div>
 
                   {/* Bottom Privacy Notice */}
@@ -1592,13 +1762,13 @@ export default function SigiloX() {
 
                     {/* CTA Button - Fixed Text Overflow */}
                     <Button
-  onClick={() => setCurrentStep("generating")}
-  className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden flex items-center justify-center text-center"
->
-  <span className="block text-center leading-tight px-2 break-words whitespace-normal">
-    🔓 UNLOCK COMPLETE EVIDENCE – SEE EVERYTHING
-  </span>
-</Button>
+                      onClick={() => setCurrentStep("generating")}
+                      className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden flex items-center justify-center text-center"
+                    >
+                      <span className="block text-center leading-tight px-2 break-words whitespace-normal">
+                        🔓 UNLOCK COMPLETE EVIDENCE – SEE EVERYTHING
+                      </span>
+                    </Button>
 
                     {/* Reassurance */}
                     <div className="text-center">
@@ -1639,19 +1809,67 @@ export default function SigiloX() {
                     </div>
 
                     <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-green-50 rounded-xl">
-                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                      <div
+                        className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl ${
+                          stepCompleted.profilePhotos ? "bg-green-50" : "bg-blue-50"
+                        }`}
+                      >
+                        {stepCompleted.profilePhotos ? (
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                        ) : (
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                        )}
                         <span className="text-xs sm:text-sm text-gray-700 font-medium">Profile photos analyzed</span>
                       </div>
-                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-blue-50 rounded-xl">
-                        <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
-                        <span className="text-xs sm:text-sm text-gray-700 font-medium">
+                      <div
+                        className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl ${
+                          stepCompleted.conversations
+                            ? "bg-green-50"
+                            : stepCompleted.profilePhotos
+                              ? "bg-blue-50"
+                              : "bg-gray-50"
+                        }`}
+                      >
+                        {stepCompleted.conversations ? (
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                        ) : stepCompleted.profilePhotos ? (
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                        ) : (
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 bg-gray-300 rounded-full" />
+                        )}
+                        <span
+                          className={`text-xs sm:text-sm font-medium ${
+                            stepCompleted.conversations || stepCompleted.profilePhotos
+                              ? "text-gray-700"
+                              : "text-gray-500"
+                          }`}
+                        >
                           Processing conversations...
                         </span>
                       </div>
-                      <div className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                        <div className="w-4 h-4 sm:w-5 sm:h-5 bg-gray-300 rounded-full" />
-                        <span className="text-xs sm:text-sm text-gray-500">Finalizing report...</span>
+                      <div
+                        className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl ${
+                          stepCompleted.finalizing
+                            ? "bg-green-50"
+                            : stepCompleted.conversations
+                              ? "bg-blue-50"
+                              : "bg-gray-50"
+                        }`}
+                      >
+                        {stepCompleted.finalizing ? (
+                          <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500" />
+                        ) : stepCompleted.conversations ? (
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+                        ) : (
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 bg-gray-300 rounded-full" />
+                        )}
+                        <span
+                          className={`text-xs sm:text-sm font-medium ${
+                            stepCompleted.finalizing || stepCompleted.conversations ? "text-gray-700" : "text-gray-500"
+                          }`}
+                        >
+                          Finalizing report...
+                        </span>
                       </div>
                     </div>
 
@@ -1677,6 +1895,23 @@ export default function SigiloX() {
               className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] px-4 py-6 sm:py-8"
             >
               <div className="container mx-auto max-w-4xl">
+                {(profilePhoto || uploadedPhoto) && (
+                  <div className="flex justify-center mb-6 sm:mb-8">
+                    <div className="relative">
+                      <img
+                        src={uploadedPhoto || profilePhoto || ""}
+                        alt="Profile"
+                        className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-white shadow-lg"
+                      />
+                      {isPhotoPrivate && (
+                        <div className="absolute inset-0 bg-black bg-opacity-50 rounded-full flex items-center justify-center">
+                          <Lock className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+
                 {/* Alert Banners */}
                 <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   <div className="bg-gradient-to-r from-red-500 to-red-600 text-white p-3 sm:p-4 rounded-xl shadow-lg">
@@ -1729,22 +1964,34 @@ export default function SigiloX() {
                     <h3 className="text-lg sm:text-xl font-bold text-[#333333] mb-4 sm:mb-6">
                       🔥 RECENT MATCHES FOUND
                     </h3>
-                    <div className="space-y-3 sm:space-y-4">
-                      {generateFakeProfiles().map((profile, index) => (
-                        <div key={index} className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-xl">
-                          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-pink-200 to-purple-200 rounded-xl flex items-center justify-center">
-                            <User className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />
+
+                    <div className="space-y-4">
+                      {generatedProfiles.map((profile, index) => (
+                        <div key={index} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                          <div className="relative">
+                            {profile.image ? (
+                              <img
+                                src={profile.image || "/placeholder.svg"}
+                                alt={profile.name}
+                                className="w-12 h-12 rounded-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-12 h-12 rounded-full bg-pink-200 flex items-center justify-center">
+                                <User className="w-6 h-6 text-pink-600" />
+                              </div>
+                            )}
+                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-[#333333] text-sm sm:text-base">
-                              {profile.name}, {profile.age}
-                            </h4>
-                            <p className="text-xs sm:text-sm text-gray-600">Last seen: {profile.lastSeen}</p>
-                            <p className="text-xs sm:text-sm text-green-600 font-medium">
-                              Active chat: frequently online
-                            </p>
+                            <div className="flex items-center justify-between">
+                              <h4 className="font-semibold text-gray-900">
+                                {profile.name}, {profile.age}
+                              </h4>
+                              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            </div>
+                            <p className="text-sm text-gray-600">Last seen: {profile.lastSeen}</p>
+                            <p className="text-sm text-green-600">Active chat: frequently online</p>
                           </div>
-                          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full animate-pulse" />
                         </div>
                       ))}
                     </div>
@@ -1851,7 +2098,9 @@ export default function SigiloX() {
 
                     {/* Direct Checkout Button - Fixed Text Overflow */}
                     <Button
-                      onClick={() => window.open("https://pay.mundpay.com/019827bf-dd10-703f-a9cf-64bad0eeb361?ref=", "_blank")}
+                      onClick={() =>
+                        window.open("https://pay.mundpay.com/019827bf-dd10-703f-a9cf-64bad0eeb361?ref=", "_blank")
+                      }
                       className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
                       <span className="block text-center leading-tight px-2">🔓 UNLOCK MY COMPLETE REPORT</span>
