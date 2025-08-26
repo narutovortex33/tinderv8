@@ -77,94 +77,85 @@ const SalesProofPopup = ({ show, onClose }: { show: boolean; onClose: () => void
   )
 }
 
+// Arrays organizados por gênero e faixa etária
 const malePhotos1824 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/maxnastyi.jpg-y7f834gE9VgfTOXDVU1VietC03F4tB.jpeg", // maxnastyi.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/eeerik.jpg-iWXlod890Mbng3f0W0iNApzzqNCE6d.jpeg", // eeerik.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/joanraay.jpg-yAL0eUMZBdU3hdvCDSYrYtymFcWXc6.jpeg", // joanraay.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/armeyes.jpg-DzLVKj6aqPPOhLs6ODOHXQT0X2OQKk.jpeg", // armeyes.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dieego69.jpg-Gc1LtwSCGu7KDWMxTJM1sosoyTfTQV.jpeg", // dieego69.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/franrick.jpg-fY4ZAbqJAhrDCdDtH1ThJvfwjBuDiZ.jpeg", // franrick.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nahuelbaby.jpg-Wy4DXDg2M5tYcbYtH4hgnBBhzlTaTE.jpeg", // nahuelbaby.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-andyreiddvip.jpg-JfW3WQX7spc75NBSfoH1ink8qFF9bg.jpeg", // male-25-34-male-andyreiddvip.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-franchescox.jpg-SSxdBZNDEbogmHbY6WPnSteKDSLnOy.jpeg", // male-25-34-male-franchescox.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-augst_ts.jpg-nu4ttxScgp63AQU9M9uUAQw6ujbhmq.jpeg", // male-25-34-male-augst_ts.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-nanoargentino.jpg-MupFxTgua62ieJ17as9NXcynMYNbgN.jpeg", // male-25-34-male-nanoargentino.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-shyguyishere.jpg-94TD8ArDNT2ZBDw0N2M0G9hJah6UKk.jpeg", // male-25-34-male-shyguyishere.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-carterlander08.jpg-yVyzRYbS0aGVhbvEX0Mjss5h51nySK.jpeg", // male-25-34-male-carterlander08.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-matthewteddy.jpg-gGny9NX0j88eVzP1iJqKZPEVWZ0Ogs.jpeg", // male-25-34-male-matthewteddy.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-tomidiazj.jpg-uuVCkrFp6AHIQkyUkoUnQ4seoDKeL7.jpeg", // male-25-34-male-tomidiazj.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-latinblondarg.jpg-erLXKeyVnCQFjS4QaZLFLFhu1I0yro.jpeg", // male-25-34-male-latinblondarg.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-bushidoboy.jpg-Ye68jGO1s2usgp6AabdJo4bGpnxCTl.jpeg", // male-25-34-male-bushidoboy.jpg
 ]
 
 const malePhotos2534 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bushidoboy.jpg-SHM52WRaSbHRHS8mRtRQ6Fe2DSTCbO.jpeg", // bushidoboy.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/franchescox.jpg-JsgFqWArDB13u3u0BFntOqXEvbINbg.jpeg", // franchescox.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/andyreiddvip.jpg-ADqckUKPAvPiUTkqrNyrPjvC4F8cL6.jpeg", // andyreiddvip.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/matthewteddy.jpg-YUsMLMjSy32mMNEzNULz4IVjOjexZg.jpeg", // matthewteddy.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/shyguyishere.jpg-dJb8kRoXYgn3P886uXmiqRbsondkSH.jpeg", // shyguyishere.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tomidiazj.jpg-cp9BHFGJjjkWte9gjLLoTdKON8rKjo.jpeg", // tomidiazj.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/carterlander08.jpg-6TKolDAUlVN4IpoP1utEl80vpLBuZx.jpeg", // carterlander08.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nanoargentino.jpg-FfjNeo7H8M5JHOCz4S8Ruu9sJKeAqI.jpeg", // nanoargentino.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/latinblondarg.jpg-KeDld7pykzba0afA8Neq9MJ3KYTipZ.jpeg", // latinblondarg.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/augst_ts.jpg-IrXADrgpCKpV7qV4U61C98j0ANgptE.jpeg", // augst_ts.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-andyreiddvip.jpg-JfW3WQX7spc75NBSfoH1ink8qFF9bg.jpeg", // male-25-34-male-andyreiddvip.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-franchescox.jpg-SSxdBZNDEbogmHbY6WPnSteKDSLnOy.jpeg", // male-25-34-male-franchescox.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-augst_ts.jpg-nu4ttxScgp63AQU9M9uUAQw6ujbhmq.jpeg", // male-25-34-male-augst_ts.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-nanoargentino.jpg-MupFxTgua62ieJ17as9NXcynMYNbgN.jpeg", // male-25-34-male-nanoargentino.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-shyguyishere.jpg-94TD8ArDNT2ZBDw0N2M0G9hJah6UKk.jpeg", // male-25-34-male-shyguyishere.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-carterlander08.jpg-yVyzRYbS0aGVhbvEX0Mjss5h51nySK.jpeg", // male-25-34-male-carterlander08.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-matthewteddy.jpg-gGny9NX0j88eVzP1iJqKZPEVWZ0Ogs.jpeg", // male-25-34-male-matthewteddy.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-tomidiazj.jpg-uuVCkrFp6AHIQkyUkoUnQ4seoDKeL7.jpeg", // male-25-34-male-tomidiazj.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-latinblondarg.jpg-erLXKeyVnCQFjS4QaZLFLFhu1I0yro.jpeg", // male-25-34-male-latinblondarg.jpg
+  "https://blobs.vusercontent.net/blob/male-25-34-male-bushidoboy.jpg-Ye68jGO1s2usgp6AabdJo4bGpnxCTl.jpeg", // male-25-34-male-bushidoboy.jpg
 ]
 
 const malePhotos3544 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nicoink.jpg-VJt8sUsXTpqStcdd3k6nKJsyw0OC4l.jpeg", // nicoink.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thebigitaliansub.jpg-y4GDz8EUCnbKZcCDmbrRaAuG9N7nhw.jpeg", // thebigitaliansub.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/josepbgfeet.jpg-Shui0D0kxprkJ59ousTMbsW6RPZ9LP.jpeg", // josepbgfeet.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/morocholatino87.jpg-Fy8NHtZVDkZSvzqDg7XBalE1XdDqhI.jpeg", // morocholatino87.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/thesuitedboss.jpg-mMqyAVQUJsgf9gyTa5F33NMqPkNaoT.jpeg", // thesuitedboss.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/nicoalpalo22.jpg-2f10UhAb5GNH5oHa0XQDke5267iO4i.jpeg", // nicoalpalo22.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tunacho.jpg-NC3tCbUJog6cPs0WW1IlVZY3VQJ27s.jpeg", // tunacho.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ovalo-sex.jpg-C8pmDJCmKESfLhAGUdKSPW9KMAFLqP.jpeg", // ovalo-sex.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/puntogof.jpg-iJSKomEC0QRKYLmQsI2S5dn2FLcFwq.jpeg", // puntogof.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-morocholatino87.jpg-bam8DFyuAfzBux5zmL9lscgSfnbJ4w.jpeg", // male-35-44-male-morocholatino87.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-ovalo-sex.jpg-TdxtGZRqBJy2V8x9kVfSml7x6QJpjt.jpeg", // male-35-44-male-ovalo-sex.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-josepbgfeet.jpg-f25HHQX8Dso5oQBIE1uCIP3oC3KYrd.jpeg", // male-35-44-male-josepbgfeet.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-thesuitedboss.jpg-3CFJKVgZyyuzeIPk0klRBy6ixqjsHF.jpeg", // male-35-44-male-thesuitedboss.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-nicoink.jpg-0YCHbmDqw9dWCItx4Of9GbWBbpiZOZ.jpeg", // male-35-44-male-nicoink.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-nicoalpalo22.jpg-bPAd1S83ZoBGkoJyaKZ0BSEveTVHG1.jpeg", // male-35-44-male-nicoalpalo22.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-tunacho.jpg-2wHzLphZ2mKamlOeZmIfo1F09LM6pR.jpeg", // male-35-44-male-tunacho.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-thebigitaliansub.jpg-rcFp57YB2XDXYQ1ObWSzBY0QDTVkcI.jpeg", // male-35-44-male-thebigitaliansub.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/male-35-44-male-puntogof.jpg-9b6bkanYwTL6acvIqT3AC87dvvnXFZ.jpeg", // male-35-44-male-puntogof.jpg
 ]
 
 const malePhotos4554 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hombrelatinoarg.jpg-vxsqKHnfvJ7zpW7ZlkqzVSxLPV5LJN.jpeg", // hombrelatinoarg.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/petemastersxxx.jpg-QPnKLV8AASm7mszaFw34zOKeL3eP0q.jpeg", // petemastersxxx.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/coachtennisdad.jpg-Ew3oEYdM3y7JZh2vb7G2TAqDmHfIAR.jpeg", // coachtennisdad.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/scorcherb8.jpg-2JydRinBvxWCCdXblw3Q5fC9G4QYtF.jpeg", // scorcherb8.jpg
+  // Placeholder para quando receber as imagens 45-54
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
 ]
 
 const femalePhotos1824 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/born2bscene.jpg-CrqOerhJrG3Fc7wmpr6fCeeWAM6BHA.jpeg", // born2bscene.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/izzybunniesvip.jpg-MA6cjWqoBX9kQZ3OtnnbMsfISt9Llv.jpeg", // izzybunniesvip.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/imjuliequeen.jpg-HTth575rQz3GfsR0o3Tyt0uXt0rBYp.jpeg", // imjuliequeen.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/babygirlmiza.jpg-N1ba5KxtvC4gIpveBKlsCUAZh3GYZM.jpeg", // babygirlmiza.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/louprival.jpg-eqlHNgBCJoPoW919wIwknyWJ7IaYJH.jpeg", // louprival.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/liliafourtwenty.jpg-2Z0S077E9ol454xXLw8j3c5IUFyfvj.jpeg", // liliafourtwenty.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tulpina.jpg-oLPI7D7DwDmZrrtbf0tQFGL7i6xxqB.jpeg", // Tulpina.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ScarletBae.jpg-IeIjB3RhZSqAjC7hThhFUBWtPptiB0.jpeg", // ScarletBae.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/PolyKittenMyr.jpg-irLfn7M144zkAy5x1ZfCJvQNa97Mg2.jpeg", // PolyKittenMyr.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-bustanutters.jpg-PfzSPm0cPx7xUL939wZRvkH6X4MnMI.jpeg", // female-18-24-female-ScarletBae.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-megnut.jpg-JDM9fK1I9XwHyJHqn36CZyjwv55ycS.jpeg", // female-18-24-female-born2bscene.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-siswet.jpg-5Ovue3nSIBKAMGL74rU3Ct4qf7bpFN.jpeg", // female-18-24-female-liliafourtwenty.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-ThorriandJax.jpg-CZTrwFISinAcSSvxRrAcUWtMDYTaiO.jpeg", // female-18-24-female-louprival.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-juicyjade9.jpg-nOS27Xu6KrOgaCRuu9862Hk73NegAs.jpeg", // female-18-24-female-babygirlmiza.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-ruth_lee.jpg-J5flhVFgEjhvJiSFhj0ZuBY3tGwjRI.jpeg", // female-18-24-female-imjuliequeen.jpg
+  "https://blobs.vusercontent.net/blob/female-25-34-female-graciebon1.jpg-kfctbLLp6OUl4Kc0OhSYyglGCLl29f.jpeg", // female-18-24-female-izzybunniesvip.jpg
 ]
 
 const femalePhotos2534 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ThorriandJax.jpg-NYO2GElQOPVB6RNydbj8y6FIgzqI5e.jpeg", // ThorriandJax.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/megnut.jpg-cqeal6tZxOUeFbGn3Xptpho7yPbv03.jpeg", // megnut.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/siswet.jpg-6ugpiNeMruVl7mJb9SK85lJqXyeYm0.jpeg", // siswet.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/toomanypeaches.jpg-ngtTtNT4WIYuTptk2Vex6Wyzg6egrF.jpeg", // toomanypeaches.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ruth_lee.jpg-w9X70NVEm8WdeSInTZiCt3nrKy40OJ.jpeg", // ruth_lee.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/graciebon1.jpg-4Inf3gP696ElJ3N8GbqxYzOWwFX8ws.jpeg", // graciebon1.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/juicyjade9.jpg-XpGGpkX6xOJu6P2Q09gdS5K6RydDh4.jpeg", // juicyjade9.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bustanutters.jpg-InxvODOtn2EMClREOAtWX8HUhg4XuH.jpeg", // bustanutters.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/brujita.roja.jpg-7AHoFzgFSOq08Xkf1HbMlhHv6F2Ufp.jpeg", // brujita.roja.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-bustanutters.jpg-PfzSPm0cPx7xUL939wZRvkH6X4MnMI.jpeg", // female-25-34-female-bustanutters.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-megnut.jpg-JDM9fK1I9XwHyJHqn36CZyjwv55ycS.jpeg", // female-25-34-female-megnut.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-siswet.jpg-5Ovue3nSIBKAMGL74rU3Ct4qf7bpFN.jpeg", // female-25-34-female-siswet.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-ThorriandJax.jpg-CZTrwFISinAcSSvxRrAcUWtMDYTaiO.jpeg", // female-25-34-female-ThorriandJax.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-juicyjade9.jpg-nOS27Xu6KrOgaCRuu9862Hk73NegAs.jpeg", // female-25-34-female-juicyjade9.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-ruth_lee.jpg-J5flhVFgEjhvJiSFhj0ZuBY3tGwjRI.jpeg", // female-25-34-female-ruth_lee.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-graciebon1.jpg-kfctbLLp6OUl4Kc0OhSYyglGCLl29f.jpeg", // female-25-34-female-graciebon1.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-brujita.roja.jpg-KZxlryBKf0XVbOHRNdGAMBpPQTa82Z.jpeg", // female-25-34-female-brujita.roja.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-25-34-female-toomanypeaches.jpg-6PDRsf3v2Nalrv9eRaku1bX8wh5kOe.jpeg", // female-25-34-female-toomanypeaches.jpg
 ]
 
 const femalePhotos3544 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/polarainbow.jpg-2m8cd4I5MqsjlCUUVnT4BNRAoVZ9vd.jpeg", // polarainbow.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/belle_oharaxxx.jpg-24o1RLGkpHbb3seXZeiENHMRu7exm8.jpeg", // belle_oharaxxx.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/txhotwife84_free.jpg-KX726VoNNEUPcU2UITX4LHx35QhfBr.jpeg", // txhotwife84_free.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/syrenjaymes.jpg-ZsjqvXFptcgMwWWYIobECFSCaxYlVw.jpeg", // syrenjaymes.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/goodtimetrouble.jpg-IbETNjsDkNbpAIz3M6fX22WqcNsDhe.jpeg", // goodtimetrouble.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/brynnwoods.jpg-eeI8d0AUcbxGlxn7tHdYMatumN3kso.jpeg", // brynnwoods.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hannahbrooks25.jpg-I5t05KWFkTPODrTDmT9EbZ3g8y4Uxh.jpeg", // hannahbrooks25.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/qtsnack.jpg-zpcRq0tZCX9qMIwhXgZW1jxQ94sqxP.jpeg", // qtsnack.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/anialisimo.jpg-oz9KqFWKrOze3YXO0LuowuuR1si4QQ.jpeg", // anialisimo.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-35-44-female-belle_oharaxxx.jpg-Pq9aUAbtUDVI9UrrzZJlkfEC0cxuQv.jpeg", // female-35-44-female-belle_oharaxxx.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-35-44-female-txhotwife84_free.jpg-QV1C6Nj4fbSzTRIyGs7p4kiqtozXCx.jpeg", // female-35-44-female-txhotwife84_free.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-35-44-female-malmalloy.jpg-B7c4Pg36GwUFFIayybP0fiyWqkv51R.jpeg", // female-35-44-female-malmalloy.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-35-44-female-anialisimo.jpg-EcQ66PmaeU25fFT0xV8udt4mMqLwhC.jpeg", // female-35-44-female-anialisimo.jpg
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/female-35-44-female-syrenjaymes.jpg-N4w0IhzPmQNbX0BqZRFeTvdBdGNn3Y.jpeg", // female-35-44-female-syrenjaymes.jpg
 ]
 
 const femalePhotos4554 = [
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/jemmaluv.jpg-KyZTtI9Bpa9JNd2464knWdcOaJ0eEP.jpeg", // jemmaluv.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/usapippa.jpg-QQrmSyaX03Nvq2VsmwewP9BxwY9WZZ.jpeg", // usapippa.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/rileysweetnsexy.jpg-fbsx4s7dXRzfVvlflDi2KkZBEvsp5U.jpeg", // rileysweetnsexy.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/stellahere.jpg-MXSX9oUds7Z5Pq0jwB4xNkmkxY7Eko.jpeg", // stellahere.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AvrilShowers.jpg-QWZkGgYW9iz2JkwQZzY0aWDEv686cF.jpeg", // AvrilShowers.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/quiet_winner_76.jpg-h6xFZ54Pd4uclbb5y4vpBjaxY11zJh.jpeg", // quiet_winner_76.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/eroticnikki.jpg-IfE8CknUU6lUsxHxkPHvh1NplTvNAb.jpeg", // eroticnikki.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/goldieblair.jpg-V9ekH0vPvTIKuKMkcIgmCMFOY0FYlA.jpeg", // goldieblair.jpg
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/annikarose69.jpg-GI8Om7aRdzfvkyARy5w6d1O2niD5NK.jpeg", // annikarose69.jpg
+  // Placeholder para quando receber as imagens 45-54
+  "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
 ]
 
 const maleNames = {
@@ -212,6 +203,9 @@ export default function SigiloX() {
   const [emailSubmitted, setEmailSubmitted] = useState(false)
   const [generatedProfiles, setGeneratedProfiles] = useState<any[]>([])
   const [selectedRandomPhoto, setSelectedRandomPhoto] = useState<string | null>(null)
+
+  const [selectedProfile, setSelectedProfile] = useState<any>(null)
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
 
   const [selectedCountry, setSelectedCountry] = useState({
     code: "+1",
@@ -742,61 +736,91 @@ export default function SigiloX() {
     }
   }
 
+  const [shouldUseCustomPhotosNonBinary1824, setShouldUseCustomPhotosNonBinary1824] = useState(false)
+  const [shouldUseCustomPhotosNonBinary2534, setShouldUseCustomPhotosNonBinary2534] = useState(false)
+  const [shouldUseCustomPhotosNonBinary3544, setShouldUseCustomPhotosNonBinary3544] = useState(false)
+  const [shouldUseCustomPhotosNonBinary4554, setShouldUseCustomPhotosNonBinary4554] = useState(false)
+  const [shouldUseCustomPhotos1824, setShouldUseCustomPhotos1824] = useState(false)
+  const [shouldUseCustomPhotos2534, setShouldUseCustomPhotos2534] = useState(false)
+  const [shouldUseCustomPhotos3544, setShouldUseCustomPhotos3544] = useState(false)
+  const [shouldUseCustomPhotos4554, setShouldUseCustomPhotos4554] = useState(false)
+  const [shouldUseCustomPhotosMale1824, setShouldUseCustomPhotosMale1824] = useState(false)
+  const [shouldUseCustomPhotosMale2534, setShouldUseCustomPhotosMale2534] = useState(false)
+  const [shouldUseCustomPhotosMale3544, setShouldUseCustomPhotosMale3544] = useState(false)
+  const [shouldUseCustomPhotosMale4554, setShouldUseCustomPhotosMale4554] = useState(false)
+
+  const [shuffledPhotoIndices1824, setShuffledPhotoIndices1824] = useState<number[]>([])
+  const [shuffledPhotoIndices2534, setShuffledPhotoIndices2534] = useState<number[]>([])
+  const [shuffledPhotoIndices3544, setShuffledPhotoIndices3544] = useState<number[]>([])
+  const [shuffledPhotoIndices4554, setShuffledPhotoIndices4554] = useState<number[]>([])
+  const [shuffledPhotoIndicesMale1824, setShuffledPhotoIndicesMale1824] = useState<number[]>([])
+  const [shuffledPhotoIndicesMale2534, setShuffledPhotoIndicesMale2534] = useState<number[]>([])
+  const [shuffledPhotoIndicesMale3544, setShuffledPhotoIndicesMale3544] = useState<number[]>([])
+  const [shuffledPhotoIndicesMale4554, setShuffledPhotoIndicesMale4554] = useState<number[]>([])
+
+  const [combinedPhotos1824, setCombinedPhotos1824] = useState<string[]>([])
+  const [combinedPhotos2534, setCombinedPhotos2534] = useState<string[]>([])
+  const [combinedPhotos3544, setCombinedPhotos3544] = useState<string[]>([])
+  const [combinedPhotos4554, setCombinedPhotos4554] = useState<string[]>([])
+
   const generateFakeProfiles = useCallback(() => {
-    const profiles = []
+    const profiles: any[] = []
 
-    const shouldUseCustomPhotos1824 = selectedGender === "masculino" && ageRange === "18-24"
-    const shouldUseCustomPhotos2534 = selectedGender === "masculino" && ageRange === "25-34"
-    const shouldUseCustomPhotos3544 = selectedGender === "masculino" && ageRange === "35-44"
-    const shouldUseCustomPhotos4554 = selectedGender === "masculino" && ageRange === "45-54"
-    const shouldUseCustomPhotosMale1824 = selectedGender === "feminino" && ageRange === "18-24"
-    const shouldUseCustomPhotosMale2534 = selectedGender === "feminino" && ageRange === "25-34"
-    const shouldUseCustomPhotosMale3544 = selectedGender === "feminino" && ageRange === "35-44"
-    const shouldUseCustomPhotosMale4554 = selectedGender === "feminino" && ageRange === "45-54"
+    // Sample bios for variety
+    const sampleBios = [
+      "I'm what you get if you mix Pete Davidson with Denzel Washington. I'm funny on accident and my mom thinks I'm handsome",
+      "Adventure seeker, coffee lover, and dog enthusiast. Looking for someone to explore the city with!",
+      "Fitness enthusiast by day, Netflix binger by night. Let's grab a smoothie and talk about life.",
+      "Artist, dreamer, and part-time philosopher. I believe in good vibes and great conversations.",
+      "Foodie who knows all the best spots in town. Swipe right if you're ready for culinary adventures!",
+      "Music lover, concert goer, and vinyl collector. Let's discover new bands together.",
+      "Outdoor enthusiast who loves hiking, camping, and stargazing. Nature is my therapy.",
+      "Bookworm and coffee shop regular. I can recommend the perfect book for any mood.",
+    ]
 
-    const shuffledPhotoIndices1824 = shouldUseCustomPhotos1824
-      ? [...Array(femalePhotos1824.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
+    const personalityTags = [
+      ["Capricorn", "INTJ", "Cat"],
+      ["Leo", "ENFP", "Dog"],
+      ["Virgo", "ISFJ", "Coffee"],
+      ["Gemini", "ENTP", "Travel"],
+      ["Scorpio", "INFP", "Art"],
+      ["Sagittarius", "ESFP", "Music"],
+      ["Pisces", "ISFP", "Nature"],
+      ["Aries", "ESTJ", "Fitness"],
+    ]
 
-    const shuffledPhotoIndices2534 = shouldUseCustomPhotos2534
-      ? [...Array(femalePhotos2534.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
+    const interestTags = [
+      ["Pro-Choice", "Coffee", "Black Lives Matter", "Tattoos", "Mental Health Awareness"],
+      ["Yoga", "Sustainability", "Photography", "Cooking", "Travel"],
+      ["Fitness", "Meditation", "Books", "Wine", "Art"],
+      ["Music", "Dancing", "Fashion", "Movies", "Food"],
+      ["Gaming", "Technology", "Hiking", "Pets", "Comedy"],
+      ["Sports", "Adventure", "Beach", "Concerts", "Volunteering"],
+      ["Reading", "Writing", "Theater", "Museums", "Gardening"],
+      ["Cycling", "Rock Climbing", "Surfing", "Camping", "Festivals"],
+    ]
 
-    const shuffledPhotoIndices3544 = shouldUseCustomPhotos3544
-      ? [...Array(femalePhotos3544.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
+    const locations = [
+      "Lives in São Paulo",
+      "Lives in Rio de Janeiro",
+      "Lives in Belo Horizonte",
+      "Lives in Salvador",
+      "Lives in Brasília",
+      "Lives in Fortaleza",
+      "Lives in Recife",
+      "Lives in Porto Alegre",
+    ]
 
-    const shuffledPhotoIndices4554 = shouldUseCustomPhotos4554
-      ? [...Array(femalePhotos4554.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
-
-    const shuffledPhotoIndicesMale1824 = shouldUseCustomPhotosMale1824
-      ? [...Array(malePhotos1824.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
-
-    const shuffledPhotoIndicesMale2534 = shouldUseCustomPhotosMale2534
-      ? [...Array(malePhotos2534.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
-
-    const shuffledPhotoIndicesMale3544 = shouldUseCustomPhotosMale3544
-      ? [...Array(malePhotos3544.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
-
-    const shuffledPhotoIndicesMale4554 = shouldUseCustomPhotosMale4554
-      ? [...Array(malePhotos4554.length)].map((_, i) => i).sort(() => Math.random() - 0.5)
-      : []
+    const orientations = ["Straight", "Gay", "Bisexual", "Pansexual", "Queer"]
 
     for (let i = 0; i < 3; i++) {
       let names, targetGender, targetAge
 
       if (selectedGender === "nao-binario") {
-        // Random selection for non-binary
         const genders = ["masculino", "feminino"]
         targetGender = genders[Math.floor(Math.random() * genders.length)]
-        const ages = ["18-24", "25-34", "35-44", "45-54"]
-        targetAge = ages[Math.floor(Math.random() * ages.length)]
+        targetAge = ageRange
       } else {
-        // Opposite gender for binary selections
         targetGender = selectedGender === "masculino" ? "feminino" : "masculino"
         targetAge = ageRange
       }
@@ -807,7 +831,17 @@ export default function SigiloX() {
 
       let profileImage = `https://images.unsplash.com/photo-${1500000000000 + Math.floor(Math.random() * 100000000)}?w=400&h=400&fit=crop&crop=face`
 
-      if (shouldUseCustomPhotos1824 && shuffledPhotoIndices1824[i] !== undefined) {
+      if (selectedGender === "nao-binario") {
+        if (shouldUseCustomPhotosNonBinary1824 && combinedPhotos1824[i] !== undefined) {
+          profileImage = combinedPhotos1824[i]
+        } else if (shouldUseCustomPhotosNonBinary2534 && combinedPhotos2534[i] !== undefined) {
+          profileImage = combinedPhotos2534[i]
+        } else if (shouldUseCustomPhotosNonBinary3544 && combinedPhotos3544[i] !== undefined) {
+          profileImage = combinedPhotos3544[i]
+        } else if (shouldUseCustomPhotosNonBinary4554 && combinedPhotos4554[i] !== undefined) {
+          profileImage = combinedPhotos4554[i]
+        }
+      } else if (shouldUseCustomPhotos1824 && shuffledPhotoIndices1824[i] !== undefined) {
         profileImage = femalePhotos1824[shuffledPhotoIndices1824[i]]
       } else if (shouldUseCustomPhotos2534 && shuffledPhotoIndices2534[i] !== undefined) {
         profileImage = femalePhotos2534[shuffledPhotoIndices2534[i]]
@@ -831,6 +865,13 @@ export default function SigiloX() {
         lastSeen: `${Math.floor(Math.random() * 24)}h ago`,
         description: "Active user, frequently online",
         image: profileImage,
+        bio: sampleBios[Math.floor(Math.random() * sampleBios.length)],
+        location: locations[Math.floor(Math.random() * locations.length)],
+        distance: `${Math.floor(Math.random() * 10) + 1} ${Math.random() > 0.5 ? "miles" : "km"} away`,
+        orientation: orientations[Math.floor(Math.random() * orientations.length)],
+        personality: personalityTags[Math.floor(Math.random() * personalityTags.length)],
+        interests: interestTags[Math.floor(Math.random() * interestTags.length)],
+        verified: Math.random() > 0.5,
       })
     }
 
@@ -847,7 +888,41 @@ export default function SigiloX() {
     malePhotos2534,
     malePhotos3544,
     malePhotos4554,
+    shouldUseCustomPhotosNonBinary1824,
+    shouldUseCustomPhotosNonBinary2534,
+    shouldUseCustomPhotosNonBinary3544,
+    shouldUseCustomPhotosNonBinary4554,
+    shouldUseCustomPhotos1824,
+    shouldUseCustomPhotos2534,
+    shouldUseCustomPhotos3544,
+    shouldUseCustomPhotos4554,
+    shouldUseCustomPhotosMale1824,
+    shouldUseCustomPhotosMale2534,
+    shouldUseCustomPhotosMale3544,
+    shouldUseCustomPhotosMale4554,
+    shuffledPhotoIndices1824,
+    shuffledPhotoIndices2534,
+    shuffledPhotoIndices3544,
+    shuffledPhotoIndices4554,
+    shuffledPhotoIndicesMale1824,
+    shuffledPhotoIndicesMale2534,
+    shuffledPhotoIndicesMale3544,
+    shuffledPhotoIndicesMale4554,
+    combinedPhotos1824,
+    combinedPhotos2534,
+    combinedPhotos3544,
+    combinedPhotos4554,
   ])
+
+  const openProfileModal = (profile: any) => {
+    setSelectedProfile(profile)
+    setIsProfileModalOpen(true)
+  }
+
+  const closeProfileModal = () => {
+    setIsProfileModalOpen(false)
+    setSelectedProfile(null)
+  }
 
   useEffect(() => {
     if (currentStep === "result") {
@@ -870,18 +945,21 @@ export default function SigiloX() {
 
     setIsSubmittingEmail(true)
     try {
-      await fetch("https://get.flwg.cc/webhook/c609e920b1a68fa7895e26a8b509d6f32de16bf15b9db6d139d50156e4719143", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      await fetch(
+        "porohtpp://get.flwg.cc/webhook/c609e920b1a68fa7895e26a8b509d6f32de16bf15b9db6d139d50156e4719143madson",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            tag: "tinder check en - usuario criado",
+            evento: "Usuário Criado",
+            email: userEmail,
+            phone: phoneNumber,
+          }),
         },
-        body: JSON.stringify({
-          tag: "tinder check en - usuario criado",
-          evento: "Usuário Criado",
-          email: userEmail,
-          phone: phoneNumber,
-        }),
-      })
+      )
     } catch (error) {
       console.error("Error submitting email:", error)
     } finally {
@@ -1967,7 +2045,11 @@ export default function SigiloX() {
 
                     <div className="space-y-4">
                       {generatedProfiles.map((profile, index) => (
-                        <div key={index} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <div
+                          key={index}
+                          className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                          onClick={() => openProfileModal(profile)}
+                        >
                           <div className="relative">
                             {profile.image ? (
                               <img
@@ -2098,22 +2180,160 @@ export default function SigiloX() {
 
                     {/* Direct Checkout Button - Fixed Text Overflow */}
                     <Button
-                      onClick={() =>
-                        window.open("https://pay.mundpay.com/019827bf-dd10-703f-a9cf-64bad0eeb361?ref=", "_blank")
-                      }
-                      className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-3 sm:py-4 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
+                      onClick={() => (window.location.href = "/emergency")}
+                      className="w-full bg-gradient-to-r from-[#FF0066] to-[#FF3333] hover:from-[#FF0066] hover:to-[#FF3333] text-white font-bold py-4 sm:py-6 text-sm sm:text-base md:text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 mb-4 sm:mb-6 overflow-hidden"
                     >
-                      <span className="block text-center leading-tight px-2">🔓 UNLOCK MY COMPLETE REPORT</span>
+                      <span className="block text-center leading-tight px-2">
+                        🔓 UNLOCK MY REPORT - I'M READY FOR THE TRUTH
+                      </span>
                     </Button>
 
-                    <div className="mt-4 sm:mt-6">
-                      <p className="text-xs sm:text-sm text-gray-500 flex items-center justify-center gap-2 font-medium">
-                        <Shield className="w-4 h-4" />
-                        100% Anonymous - They'll Never Know
+                    {/* Final Reassurance */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6">
+                      <p className="text-sm sm:text-base text-blue-700 font-medium leading-relaxed">
+                        You're not invading privacy - you're protecting your emotional well-being. You have the right to
+                        make informed decisions about your relationship.
                       </p>
+                    </div>
+
+                    {/* Testimonial */}
+                    <div className="bg-gray-50 rounded-xl p-4 sm:p-6">
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <img
+                          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                          alt="Sarah M."
+                          className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-200"
+                        />
+                        <div className="flex-1 text-left">
+                          <div className="mb-2">
+                            <p className="font-bold text-[#333333] text-sm sm:text-base">Sarah M.</p>
+                            <p className="text-xs sm:text-sm text-green-600 font-medium">✓ Verified User</p>
+                          </div>
+                          <p className="text-sm sm:text-base text-gray-600 italic leading-relaxed">
+                            "I wish I had done this months ago. Would have saved me so much anxiety and wasted time."
+                          </p>
+                          <div className="flex items-center text-[#FFD700] text-sm mt-2">
+                            <span>⭐⭐⭐⭐⭐</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
+
+                {isProfileModalOpen && selectedProfile && (
+                  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                    <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+                      {/* Header with close button */}
+                      <div className="relative">
+                        <button
+                          onClick={closeProfileModal}
+                          className="absolute top-4 left-4 z-10 w-10 h-10 bg-white bg-opacity-80 rounded-full flex items-center justify-center shadow-lg"
+                        >
+                          <X className="w-5 h-5 text-gray-700" />
+                        </button>
+
+                        {/* Profile Image */}
+                        <div className="relative h-96 bg-gray-200 rounded-t-2xl overflow-hidden">
+                          <img
+                            src={selectedProfile.image || "/placeholder.svg"}
+                            alt={selectedProfile.name}
+                            className="w-full h-full object-cover"
+                          />
+
+                          {/* Gradient overlay */}
+                          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+                          {/* Name and basic info overlay */}
+                          <div className="absolute bottom-4 left-4 right-4 text-white">
+                            <div className="flex items-center gap-2 mb-1">
+                              <h2 className="text-3xl font-bold">{selectedProfile.name}</h2>
+                              {selectedProfile.verified && (
+                                <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                      clipRule="evenodd"
+                                    />
+                                  </svg>
+                                </div>
+                              )}
+                            </div>
+
+                            <div className="flex items-center gap-4 text-sm opacity-90">
+                              <div className="flex items-center gap-1">
+                                <User className="w-4 h-4" />
+                                <span>{selectedProfile.orientation}</span>
+                              </div>
+                              <div className="flex items-center gap-1">
+                                <MapPin className="w-4 h-4" />
+                                <span>{selectedProfile.location}</span>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center gap-1 text-sm opacity-90 mt-1">
+                              <MapPin className="w-4 h-4" />
+                              <span>{selectedProfile.distance}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Profile Content */}
+                      <div className="p-6 space-y-6">
+                        {/* About Me Section */}
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 mb-3">About Me</h3>
+                          <p className="text-gray-700 leading-relaxed">{selectedProfile.bio}</p>
+                        </div>
+
+                        {/* Personality Tags */}
+                        {selectedProfile.personality && (
+                          <div>
+                            <div className="flex flex-wrap gap-2">
+                              {selectedProfile.personality.map((tag: string, index: number) => (
+                                <span
+                                  key={index}
+                                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-300"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* My Interests Section */}
+                        {selectedProfile.interests && (
+                          <div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">My Interests</h3>
+                            <div className="flex flex-wrap gap-2">
+                              {selectedProfile.interests.map((interest: string, index: number) => (
+                                <span
+                                  key={index}
+                                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm border border-gray-300"
+                                >
+                                  {interest}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Action Buttons */}
+                        <div className="flex gap-4 pt-4">
+                          <button className="flex-1 bg-gray-200 text-gray-700 py-3 rounded-full font-semibold hover:bg-gray-300 transition-colors">
+                            Pass
+                          </button>
+                          <button className="flex-1 bg-gradient-to-r from-pink-500 to-red-500 text-white py-3 rounded-full font-semibold hover:from-pink-600 hover:to-red-600 transition-colors">
+                            Like
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           )}
@@ -2128,7 +2348,7 @@ export default function SigiloX() {
               className="min-h-screen bg-gradient-to-br from-[#1C2833] to-[#6C63FF] px-4 py-6 sm:py-8"
             >
               <div className="container mx-auto max-w-2xl">
-                <Card className="bg-white rounded-2xl shadow-2xl border-0">
+                <Card className="bg-white rounded-2xl shadow-lg border-0">
                   <CardContent className="p-6 sm:p-8 text-center">
                     {/* Header */}
                     <div className="mb-6 sm:mb-8">
